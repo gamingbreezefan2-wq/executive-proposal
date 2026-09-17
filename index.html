@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصة إعلامية رقمية متخصصة للأطفال والأسرة — مذكرة تنفيذية</title>
+<style>
+:root{
+  --ink:#12303A;
+  --ink-deep:#0A1F27;
+  --ink-soft:#1C4250;
+  --paper:#F3F2EE;
+  --paper-raised:#FBFAF7;
+  --line:#D9D6CE;
+  --line-soft:#E6E3DB;
+  --text:#1B2A30;
+  --text-muted:#5A6B72;
+  --pom:#9E2B2B;
+  --pom-soft:#F0E2E0;
+  --brass:#A8842C;
+  --brass-soft:#F3EBD8;
+  --teal:#2E6B6B;
+
+  --display:"Amiri","Scheherazade New","Traditional Arabic","Al Bayan","Times New Roman",serif;
+  --body:"Segoe UI","Noto Sans Arabic","Geeza Pro","Dubai",Tahoma,Arial,sans-serif;
+
+  --nav-w:250px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ LAYOUT ============ */
+.app{display:flex;min-height:100vh}
+
+.nav{
+  width:var(--nav-w);
+  flex:0 0 var(--nav-w);
+  background:var(--ink);
+  color:#CBD9DE;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  border-left:1px solid rgba(255,255,255,.07);
+}
+.nav-brand{
+  padding:26px 22px 20px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.nav-brand h1{
+  font-family:var(--display);
+  font-size:20px;
+  line-height:1.45;
+  margin:0 0 8px;
+  color:#fff;
+  font-weight:700;
+}
+.nav-brand p{
+  margin:0;
+  font-size:12.5px;
+  color:#8FA9B2;
+  line-height:1.6;
+}
+.nav-list{
+  list-style:none;
+  margin:0;
+  padding:12px 0;
+  overflow-y:auto;
+  flex:1;
+}
+.nav-list li{margin:0}
+.nav-btn{
+  width:100%;
+  text-align:right;
+  background:none;
+  border:0;
+  border-right:3px solid transparent;
+  color:#B6C9D0;
+  font-family:var(--body);
+  font-size:14.5px;
+  padding:9px 19px 9px 14px;
+  cursor:pointer;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  transition:background .14s,color .14s;
+}
+.nav-btn:hover{background:rgba(255,255,255,.055);color:#fff}
+.nav-btn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+.nav-btn .idx{
+  font-size:11.5px;
+  color:#6E8B95;
+  min-width:16px;
+  font-variant-numeric:tabular-nums;
+}
+.nav-btn[aria-current="true"]{
+  background:rgba(255,255,255,.085);
+  color:#fff;
+  border-right-color:var(--brass);
+}
+.nav-btn[aria-current="true"] .idx{color:var(--brass)}
+.nav-foot{
+  padding:14px 18px 18px;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.nav-action{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  color:#DCE7EA;
+  font-family:var(--body);
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:3px;
+  cursor:pointer;
+  transition:background .14s;
+}
+.nav-action:hover{background:rgba(255,255,255,.14)}
+.nav-action:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+.main{flex:1;min-width:0}
+.wrap{max-width:900px;margin:0 auto;padding:50px 46px 90px}
+
+/* ============ SECTIONS ============ */
+.sec{display:none}
+.sec.is-active{display:block;animation:enter .25s ease-out}
+@keyframes enter{from{opacity:0}to{opacity:1}}
+
+.sec-head{
+  border-bottom:2px solid var(--ink);
+  padding-bottom:14px;
+  margin-bottom:30px;
+}
+.sec-num{
+  font-size:12.5px;
+  color:var(--pom);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
+  margin:0 0 4px;
+}
+.sec-head h2{
+  font-family:var(--display);
+  font-size:34px;
+  line-height:1.35;
+  margin:0;
+  font-weight:700;
+  color:var(--ink-deep);
+}
+.sec-lead{
+  font-size:18px;
+  line-height:1.8;
+  color:var(--ink-soft);
+  margin:0 0 30px;
+  max-width:68ch;
+}
+
+h3{
+  font-family:var(--display);
+  font-size:23px;
+  line-height:1.5;
+  color:var(--ink-deep);
+  margin:38px 0 12px;
+  font-weight:700;
+}
+h4{
+  font-size:16px;
+  color:var(--ink-soft);
+  margin:26px 0 8px;
+  font-weight:600;
+}
+p{margin:0 0 15px;max-width:72ch}
+ul,ol{margin:0 0 18px;padding-inline-start:22px;max-width:72ch}
+li{margin-bottom:7px}
+strong{color:var(--ink-deep);font-weight:700}
+a{color:var(--pom)}
+
+/* ============ COVER ============ */
+.cover{
+  background:var(--ink);
+  color:#E7EEF0;
+  margin:-50px -46px 40px;
+  padding:64px 46px 48px;
+}
+.cover .kicker{
+  font-size:13px;
+  color:#8FA9B2;
+  margin:0 0 18px;
+}
+.cover h2{
+  font-family:var(--display);
+  font-size:46px;
+  line-height:1.3;
+  margin:0 0 10px;
+  color:#fff;
+  font-weight:700;
+}
+.cover .sub{
+  font-size:19px;
+  color:#A9C2CA;
+  margin:0 0 34px;
+  max-width:60ch;
+  line-height:1.7;
+}
+.cover-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.16);
+  padding-top:26px;
+}
+.cover-meta div{
+  padding:0 26px;
+  border-left:1px solid rgba(255,255,255,.14);
+  flex:1 1 130px;
+}
+.cover-meta div:last-child{border-left:0}
+.cover-meta .val{
+  font-family:var(--display);
+  font-size:32px;
+  color:var(--brass);
+  line-height:1.2;
+  display:block;
+  font-variant-numeric:tabular-nums;
+}
+.cover-meta .lbl{
+  font-size:12.5px;
+  color:#93AEB6;
+  display:block;
+  margin-top:3px;
+}
+.cover-meta .val .pre{
+  font-family:var(--body);
+  font-size:15px;
+  color:#93AEB6;
+  letter-spacing:.01em;
+}
+.cover-note{
+  margin:18px 0 0;
+  font-size:12.5px;
+  line-height:1.8;
+  color:#8FA9B2;
+  max-width:70ch;
+  border-inline-start:2px solid rgba(168,132,44,.5);
+  padding-inline-start:12px;
+}
+.fine-print{
+  font-size:13px;
+  line-height:1.8;
+  color:var(--text-muted);
+  margin:-14px 0 24px;
+  max-width:72ch;
+}
+.cover-foot{
+  margin-top:30px;
+  font-size:13px;
+  color:#7E99A2;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:16px;
+  line-height:1.9;
+}
+
+/* ============ DOC TOOLBAR ============ */
+.docbar{
+  position:sticky;
+  top:0;
+  z-index:30;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:9px 46px;
+  background:rgba(243,242,238,.95);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.mode-switch{
+  display:flex;
+  border:1px solid var(--line);
+  border-radius:3px;
+  overflow:hidden;
+  background:var(--paper-raised);
+}
+.mode-switch button{
+  background:none;
+  border:0;
+  font-family:var(--body);
+  font-size:13px;
+  color:var(--ink-soft);
+  padding:6px 14px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .14s,color .14s;
+}
+.mode-switch button + button{border-inline-start:1px solid var(--line)}
+.mode-switch button:hover{background:#EAE8E1}
+.mode-switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mode-switch button:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+.bar-btn{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  font-family:var(--body);
+  font-size:13px;
+  padding:6px 13px;
+  border-radius:3px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .14s;
+}
+.bar-btn:hover{background:#EAE8E1;color:var(--ink-deep)}
+.bar-btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.bar-hint{
+  font-size:12.5px;
+  color:var(--text-muted);
+  margin-inline-start:auto;
+  white-space:nowrap;
+}
+.bar-hint kbd{
+  font-family:var(--body);
+  font-size:12px;
+  border:1px solid var(--line);
+  border-bottom-width:2px;
+  border-radius:3px;
+  padding:0 5px;
+  background:var(--paper-raised);
+  color:var(--ink-soft);
+}
+
+/* ============ FULL DOCUMENT MODE ============ */
+.sec{scroll-margin-top:64px}
+.app.is-full .sec{display:block!important;animation:none!important}
+.app.is-full .sec + .sec{
+  margin-top:64px;
+  padding-top:38px;
+  border-top:3px double var(--line);
+}
+.app.is-full .pager{display:none}
+.app.is-full .nav-btn[aria-current="true"]{background:rgba(255,255,255,.085)}
+
+/* ============ TABLES ============ */
+.tbl-scroll{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line)}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14.5px;
+  background:var(--paper-raised);
+  min-width:520px;
+}
+thead th{
+  background:var(--ink);
+  color:#E6EEF0;
+  text-align:right;
+  padding:11px 13px;
+  font-weight:600;
+  font-size:13.5px;
+  vertical-align:middle;
+  border-left:1px solid rgba(255,255,255,.1);
+}
+thead th:last-child{border-left:0}
+tbody td{
+  padding:11px 13px;
+  border-top:1px solid var(--line-soft);
+  border-left:1px solid var(--line-soft);
+  vertical-align:top;
+  line-height:1.7;
+}
+tbody td:last-child{border-left:0}
+tbody tr:nth-child(even){background:#F0EFEA}
+tbody th{
+  padding:11px 13px;
+  border-top:1px solid var(--line-soft);
+  border-left:1px solid var(--line-soft);
+  text-align:right;
+  background:#EAE8E1;
+  font-weight:600;
+  color:var(--ink-deep);
+  vertical-align:top;
+  white-space:nowrap;
+}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ============ ACCORDION ============ */
+.acc{border:1px solid var(--line);margin:0 0 26px;background:var(--paper-raised)}
+.acc-item{border-bottom:1px solid var(--line-soft)}
+.acc-item:last-child{border-bottom:0}
+.acc-head{
+  width:100%;
+  background:none;
+  border:0;
+  font-family:var(--body);
+  font-size:15.5px;
+  color:var(--ink-deep);
+  text-align:right;
+  padding:14px 16px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition:background .14s;
+}
+.acc-head:hover{background:#EDEBE4}
+.acc-head:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+.acc-head .step{
+  flex:0 0 28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--ink);
+  color:#fff;
+  font-size:12.5px;
+  display:grid;
+  place-items:center;
+  font-variant-numeric:tabular-nums;
+}
+.acc-head .ttl{flex:1;font-weight:600;line-height:1.5}
+.acc-head .tag{
+  font-size:12px;
+  color:var(--text-muted);
+  font-weight:400;
+  white-space:nowrap;
+}
+.acc-head .chev{
+  flex:0 0 auto;
+  color:var(--pom);
+  font-size:13px;
+  transition:transform .18s;
+}
+.acc-head[aria-expanded="true"]{background:#EAE8E1}
+.acc-head[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.acc-body{display:none;padding:2px 16px 20px 58px;border-top:1px solid var(--line-soft);background:#FDFCFA}
+.acc-body.is-open{display:block}
+.acc-body p:last-child,.acc-body ul:last-child{margin-bottom:0}
+.acc-body dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14.5px}
+.acc-body dt{font-weight:600;color:var(--ink-soft);white-space:nowrap}
+.acc-body dd{margin:0;line-height:1.7}
+
+/* identity accordion colour bands */
+.band{flex:0 0 5px;height:30px;border-radius:2px}
+
+/* ============ PROGRAM FILTER ============ */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px}
+.chip{
+  background:#EAE8E1;
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  font-family:var(--body);
+  font-size:13.5px;
+  padding:6px 13px;
+  border-radius:2px;
+  cursor:pointer;
+  transition:background .14s,color .14s;
+}
+.chip:hover{background:#DFDCD3}
+.chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.count-note{font-size:13.5px;color:var(--text-muted);margin:0 0 14px}
+
+.prow{cursor:pointer}
+.prow:hover td{background:#EDEBE4}
+.prow td:first-child{font-weight:600;color:var(--ink-deep)}
+.pdetail td{background:#FDFCFA;padding:16px 20px;border-top:0}
+.pdetail .goal{margin:0;font-size:14.5px;line-height:1.8;max-width:none}
+.tier{
+  display:inline-block;
+  font-size:11.5px;
+  padding:2px 8px;
+  border-radius:2px;
+  white-space:nowrap;
+  border:1px solid;
+}
+.t-flagship{background:var(--pom-soft);color:var(--pom);border-color:#E0C4C1}
+.t-core{background:#DEE9EA;color:var(--teal);border-color:#C3D8D8}
+.t-volume{background:var(--brass-soft);color:#7E6220;border-color:#E2D3AE}
+.t-pilot{background:#E7E5DE;color:var(--text-muted);border-color:var(--line)}
+.new-mark{
+  font-size:11px;
+  color:var(--pom);
+  border:1px solid #E0C4C1;
+  background:var(--pom-soft);
+  padding:1px 6px;
+  border-radius:2px;
+  margin-right:6px;
+  white-space:nowrap;
+}
+
+/* ============ CARD / CALLOUT ============ */
+.callout{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-right:3px solid var(--pom);
+  padding:18px 20px;
+  margin:0 0 24px;
+}
+.callout p:last-child{margin-bottom:0}
+.callout-brass{border-right-color:var(--brass)}
+
+.quote-card{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  padding:20px 22px;
+  margin:0 0 24px;
+}
+.quote-card p{margin:0 0 12px}
+.quote-card p:last-child{margin-bottom:0}
+.quote-card .qlabel{font-weight:700;color:var(--ink-deep)}
+
+/* ============ بطاقة الاتجاه الفني ============ */
+.dir-card{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-right:3px solid var(--teal);
+  padding:17px 20px;
+  margin:0 0 26px;
+}
+.dir-card.is-character{border-right-color:var(--pom)}
+.dir-card.is-world{border-right-color:var(--brass)}
+.dir-lead{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.95;
+  color:var(--ink-soft);
+  max-width:none;
+}
+.dir-spec{
+  margin:14px 0 0;
+  padding:13px 0 0;
+  border-top:1px solid var(--line-soft);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:9px 18px;
+  font-size:14.5px;
+}
+.dir-spec dt{font-weight:700;color:var(--ink-deep);white-space:nowrap}
+.dir-spec dd{margin:0;line-height:1.8;color:var(--text)}
+
+/* ============ PIPELINE STRIP ============ */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:0 0 24px;
+  padding:16px;
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+}
+.flow span{
+  font-size:13px;
+  padding:5px 11px;
+  background:#EAE8E1;
+  border:1px solid var(--line);
+  border-radius:2px;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+.flow span.gate{background:var(--pom-soft);border-color:#E0C4C1;color:var(--pom);font-weight:600}
+.flow-key{font-size:13px;color:var(--text-muted);margin:0 0 26px}
+
+/* ============ SLIDES ============ */
+.slide{
+  border:1px solid var(--line);
+  background:var(--paper-raised);
+  margin:0 0 14px;
+  display:grid;
+  grid-template-columns:52px 1fr;
+}
+.slide-n{
+  background:var(--ink);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-family:var(--display);
+  font-size:21px;
+  font-variant-numeric:tabular-nums;
+}
+.slide-body{padding:16px 20px}
+.slide-body h4{margin:0 0 6px;font-size:17px;color:var(--ink-deep);font-weight:700}
+.slide-key{
+  font-size:14.5px;
+  color:var(--pom);
+  margin:0 0 10px;
+  line-height:1.7;
+  max-width:none;
+}
+.slide-body ul{margin:0;padding-inline-start:20px;font-size:14.5px;color:var(--text-muted)}
+.slide-body li{margin-bottom:4px}
+
+/* ============ NEXT / PREV ============ */
+.pager{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:56px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+.pager button{
+  background:none;
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  font-family:var(--body);
+  font-size:14px;
+  padding:9px 18px;
+  cursor:pointer;
+  border-radius:2px;
+  transition:background .14s;
+}
+.pager button:hover:not(:disabled){background:#EAE8E1}
+.pager button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.pager button:disabled{opacity:.35;cursor:default}
+
+.signoff{
+  margin-top:50px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+  font-size:13.5px;
+  color:var(--text-muted);
+}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  background:var(--ink-deep);
+  color:#fff;
+  font-size:14px;
+  padding:11px 18px;
+  border-radius:3px;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .2s,transform .2s;
+  pointer-events:none;
+  z-index:50;
+}
+.toast.is-on{opacity:1;transform:translateY(0)}
+
+/* ============ MOBILE ============ */
+.nav-toggle{display:none}
+
+@media (max-width:900px){
+  .app{flex-direction:column}
+  .nav{
+    width:100%;
+    flex:none;
+    height:auto;
+    position:sticky;
+    top:0;
+    z-index:40;
+    border-left:0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .nav-brand{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:0}
+  .nav-brand h1{font-size:16px;margin:0}
+  .nav-brand p{display:none}
+  .nav-toggle{
+    display:block;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.18);
+    color:#fff;
+    font-family:var(--body);
+    font-size:13px;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .nav-list{display:none;max-height:58vh;border-top:1px solid rgba(255,255,255,.1)}
+  .nav-list.is-open{display:block}
+  .nav-foot{display:none}
+  .nav-foot.is-open{display:flex;flex-direction:row;flex-wrap:wrap}
+  .nav-foot.is-open .nav-action{flex:1 1 40%}
+  .docbar{position:static;padding:8px 14px;gap:7px}
+  .docbar .bar-hint{display:none}
+  .mode-switch button,.bar-btn{font-size:12.5px;padding:6px 10px}
+  .sec{scroll-margin-top:66px}
+  .wrap{padding:28px 18px 70px}
+  .cover{margin:-28px -18px 30px;padding:40px 18px 34px}
+  .app.is-full .sec + .sec{margin-top:44px;padding-top:26px}
+  .cover h2{font-size:31px}
+  .cover .sub{font-size:16.5px}
+  .cover-meta div{padding:10px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.1);flex:1 1 44%;padding-inline-end:16px}
+  .sec-head h2{font-size:26px}
+  .sec-lead{font-size:16.5px}
+  h3{font-size:20px}
+  .acc-body{padding-inline-start:16px}
+  .acc-body dl{grid-template-columns:1fr;gap:2px 0}
+  .acc-body dd{margin-bottom:10px}
+  .dir-card{padding:15px 16px}
+  .dir-spec{grid-template-columns:1fr;gap:3px 0}
+  .dir-spec dt{margin-top:8px}
+  .dir-spec dd{margin-bottom:6px}
+  .slide{grid-template-columns:40px 1fr}
+  .toast{left:12px;right:12px;bottom:12px;text-align:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+@page{margin:16mm 14mm}
+
+@media print{
+  /* --- أدوات التصفح وحدها هي ما يُخفى --- */
+  .nav,.nav-toggle,.docbar,.pager,.filters,.toast,.count-note{display:none!important}
+
+  html,body{background:#fff!important}
+  body{font-size:10.5pt;line-height:1.65;color:#111}
+  .app{display:block!important}
+  .main{display:block!important;min-width:0}
+  .wrap{max-width:none!important;margin:0!important;padding:0!important}
+
+  /* --- كل الأقسام تُطبع، وكل قسم يبدأ في صفحة جديدة --- */
+  .sec,.sec.is-active{
+    display:block!important;
+    visibility:visible!important;
+    animation:none!important;
+    opacity:1!important;
+    margin-top:0!important;
+    padding-top:0!important;
+    border-top:0!important;
+    break-before:page;
+    page-break-before:always;
+  }
+  .sec:first-of-type{break-before:auto;page-break-before:avoid}
+
+  /* --- كل البطاقات القابلة للطي مفتوحة بالكامل --- */
+  .acc-body,.acc-body.is-open{
+    display:block!important;
+    visibility:visible!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+    padding:6px 16px 16px 44px;
+  }
+  .acc{break-inside:auto}
+  .acc-item{break-inside:avoid;page-break-inside:avoid}
+  .acc-head,.acc-head[aria-expanded="true"]{background:#ECEAE3!important;padding:9px 12px}
+  .acc-head .chev{display:none!important}
+  .acc-head .step{background:#DFDCD3!important;color:#0A1F27!important;border:1px solid #BFBCB4}
+
+  /* --- تفاصيل البرامج (الأهداف النمائية) تُطبع مفتوحة --- */
+  tr.pdetail{display:table-row!important;visibility:visible!important}
+  tr.pdetail td{display:table-cell!important;padding:10px 14px}
+  .pdetail .goal{font-size:9.5pt}
+
+  /* --- الجداول: بلا قصّ أفقي، ورأس يتكرر عبر الصفحات --- */
+  .tbl-scroll{overflow:visible!important;border:1px solid #BFBCB4;margin-bottom:18px}
+  table{min-width:0!important;width:100%!important;font-size:9pt;table-layout:auto;background:#fff!important}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  thead th{
+    background:#DFDCD3!important;
+    color:#0A1F27!important;
+    border:1px solid #BFBCB4!important;
+    padding:7px 9px;
+    font-size:9pt;
+  }
+  tbody td,tbody th{border:1px solid #D6D3CB!important;padding:7px 9px}
+  tbody th{background:#EDEBE4!important;color:#0A1F27!important;white-space:normal}
+  tbody tr:nth-child(even){background:#F6F5F1!important}
+
+  /* --- أي نص فاتح على خلفية داكنة يُقلب ليبقى مقروءاً على الورق --- */
+  .slide-n{background:#DFDCD3!important;color:#0A1F27!important;border:1px solid #BFBCB4}
+  .slide{break-inside:avoid;page-break-inside:avoid;margin-bottom:10px}
+  .dir-card{
+    background:#F8F7F4!important;
+    border:1px solid #C9C6BE!important;
+    border-right:3px solid #2E6B6B!important;
+    padding:14px 16px;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .dir-card.is-character{border-right-color:#9E2B2B!important}
+  .dir-card.is-world{border-right-color:#A8842C!important}
+  .dir-lead{font-size:10.5pt;line-height:1.75}
+  .dir-spec{font-size:10pt;border-top:1px solid #D6D3CB!important}
+  .tier,.new-mark,.flow span{background:#F1EFEA!important;border:1px solid #C9C6BE!important;color:#1B2A30!important}
+  .flow span.gate{background:#EFE2E1!important;border-color:#D8BDBA!important;color:#7E1F1F!important;font-weight:700}
+  .flow{break-inside:avoid;page-break-inside:avoid}
+
+  /* --- الغلاف --- */
+  .cover{
+    margin:0 0 22px!important;
+    padding:26px 24px!important;
+    background:#fff!important;
+    color:#111!important;
+    border:2px solid #12303A;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .cover h2,.cover .val{color:#12303A!important}
+  .cover h2{font-size:28pt}
+  .cover .sub,.cover .lbl,.cover .kicker,.cover-foot,.cover-note{color:#41535A!important}
+  .cover .val .pre{color:#5A6B72!important}
+  .cover-meta{border-top:1px solid #BFBCB4!important;padding-top:16px}
+  .cover-meta div{border-left:1px solid #D6D3CB!important;padding:0 16px}
+  .cover-note{border-inline-start:2px solid #A8842C!important}
+  .cover-foot{border-top:1px solid #D6D3CB!important}
+
+  /* --- منع تقطيع الكتل والعناوين --- */
+  .callout,.quote-card{break-inside:avoid;page-break-inside:avoid;background:#F8F7F4!important;border:1px solid #C9C6BE!important}
+  .callout{border-right:3px solid #9E2B2B!important}
+  .callout-brass{border-right-color:#A8842C!important}
+  h2,h3,h4{break-after:avoid;page-break-after:avoid}
+  h3{font-size:15pt;margin-top:22px}
+  .sec-head{border-bottom:2px solid #12303A}
+  .sec-head h2{font-size:20pt}
+  .sec-lead{font-size:11.5pt}
+  p,li{orphans:3;widows:3}
+  a{color:#12303A!important;text-decoration:none}
+
+  /* --- الحفاظ على التظليل عند دعم المتصفح له --- */
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ================= NAVIGATION ================= -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <div>
+        <h1>منصة إعلامية رقمية متخصصة للأطفال والأسرة</h1>
+        <p>مذكرة تنفيذية · إدارة المشروع / فريق التطوير الاستراتيجي</p>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">الأقسام</button>
+    </div>
+
+    <ul class="nav-list" id="navList">
+      <li><button class="nav-btn" data-target="s0"><span class="idx">—</span><span>الغلاف</span></button></li>
+      <li><button class="nav-btn" data-target="s1"><span class="idx">١</span><span>الملخص التنفيذي</span></button></li>
+      <li><button class="nav-btn" data-target="s2"><span class="idx">٢</span><span>الإطار القيمي والتربوي</span></button></li>
+      <li><button class="nav-btn" data-target="s3"><span class="idx">٣</span><span>الفئات والهويات الست</span></button></li>
+      <li><button class="nav-btn" data-target="s4"><span class="idx">٤</span><span>محرك الجودة والإنتاج</span></button></li>
+      <li><button class="nav-btn" data-target="s5"><span class="idx">٥</span><span>شراكة الأسرة</span></button></li>
+      <li><button class="nav-btn" data-target="s6"><span class="idx">٦</span><span>محفظة البرامج</span></button></li>
+      <li><button class="nav-btn" data-target="s7"><span class="idx">٧</span><span>دليل الاتجاه الفني</span></button></li>
+      <li><button class="nav-btn" data-target="s8"><span class="idx">٨</span><span>الكفاءات البشرية</span></button></li>
+      <li><button class="nav-btn" data-target="s9"><span class="idx">٩</span><span>مخطط العرض</span></button></li>
+      <li><button class="nav-btn" data-target="s10"><span class="idx">١٠</span><span>القرار المطلوب</span></button></li>
+    </ul>
+
+    <div class="nav-foot" id="navFoot">
+      <button class="nav-action" id="btnDownload">حفظ نسخة من الملف</button>
+      <button class="nav-action" id="btnPrint">طباعة أو حفظ PDF</button>
+    </div>
+  </nav>
+
+  <!-- ================= CONTENT ================= -->
+  <main class="main">
+
+    <!-- شريط أدوات القراءة -->
+    <div class="docbar" id="docBar">
+      <div class="mode-switch" role="group" aria-label="نمط عرض الوثيقة">
+        <button type="button" id="modeTabs" aria-pressed="true">عرض مقسّم بالأقسام</button>
+        <button type="button" id="modeFull" aria-pressed="false">المستند كاملاً</button>
+      </div>
+      <button type="button" class="bar-btn" id="btnDetails" aria-pressed="false">فتح جميع التفاصيل</button>
+      <button type="button" class="bar-btn" id="btnPrintBar">طباعة / حفظ PDF</button>
+      <span class="bar-hint" title="السهم الأيسر ينتقل إلى القسم التالي، والسهم الأيمن يعود إلى القسم السابق">تنقّل بالأسهم: <kbd dir="ltr">&#8592;</kbd> التالي · <kbd dir="ltr">&#8594;</kbd> السابق</span>
+    </div>
+
+  <div class="wrap">
+
+  <!-- ========== 0 · COVER ========== -->
+  <section class="sec is-active" id="s0">
+    <div class="cover">
+      <p class="kicker">وثيقة داخلية · للعرض على مجلس الإدارة والمستثمرين الاستراتيجيين</p>
+      <h2>منصة إعلامية رقمية متخصصة<br>للأطفال والأسرة</h2>
+      <p class="sub">مقترح استثماري واستراتيجي متكامل: محتوى عربي أصيل بمعايير إنتاج عالمية، مبني على منهجية نفسية وتربوية موثقة وخط إنتاج قابل للتدقيق.</p>
+
+      <div class="cover-meta">
+        <div><span class="val">١٨</span><span class="lbl">برنامجاً في خطة الموسم الأول</span></div>
+        <div><span class="val"><span class="pre">أكثر من</span> ٥٠٠</span><span class="lbl">حلقة تقديرية — المرحلة الأولى</span></div>
+        <div><span class="val"><span class="pre">نحو</span> ٦٨</span><span class="lbl">ساعة محتوى تقديرية — المرحلة الأولى</span></div>
+        <div><span class="val">٦</span><span class="lbl">فئات عمرية بهويات مستقلة</span></div>
+      </div>
+
+      <p class="cover-note">أرقام الحلقات وساعات المحتوى تقديرية مبنية على خطة المحفظة المقترحة للمرحلة الأولى، وتُعتمد نهائياً بعد استكمال دراسة الجدوى المالية التفصيلية وتثبيت كلفة الدقيقة لكل قالب فني. أما عدد البرامج وعدد الفئات العمرية فهما قرار تحريري ثابت في هذه الخطة.</p>
+
+      <p class="cover-foot">إدارة المشروع / فريق التطوير الاستراتيجي<br>الوثيقة مصمّمة للقراءة الذاتية — تنقّل بقائمة الأقسام أو بمفتاحَي الأسهم (<span dir="ltr">&#8592;</span> للقسم التالي و<span dir="ltr">&#8594;</span> للقسم السابق)، أو بدّل إلى وضع «المستند كاملاً» من الشريط العلوي لقراءتها دفعة واحدة كملف استثماري متصل.</p>
+    </div>
+
+    <h3>ما تحتويه هذه الوثيقة</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>القسم</th><th>المحتوى</th><th>القرار المرتبط به</th></tr></thead>
+        <tbody>
+          <tr><th>١ · الملخص التنفيذي</th><td>الفجوة السوقية، الرؤية، القيمة التنافسية، الشخصيات كأصول فكرية</td><td>الاقتناع بالطرح</td></tr>
+          <tr><th>٢ · الإطار القيمي</th><td>المنظومات السلوكية الست وقواعد المعالجة الملزمة</td><td>اعتماد المرجعية التربوية</td></tr>
+          <tr><th>٣ · الفئات والهويات</th><td>ست فئات عمرية بست هويات بصرية وإطالة دورة حياة المشترك</td><td>اعتماد دليل الهوية</td></tr>
+          <tr><th>٤ · محرك الجودة</th><td>خط إنتاج من ١٢ محطة وثلاث بوابات مراجعة وبطاقة المعايير</td><td>تثبيت وحدة الحوكمة</td></tr>
+          <tr><th>٥ · شراكة الأسرة</th><td>محتوى الأهل والتزامات الأمان وأثرها على الاحتفاظ</td><td>اعتماد سياسة الإعلان والبيانات</td></tr>
+          <tr><th>٦ · محفظة البرامج</th><td>١٨ برنامجاً بتوزيع محسوب وأولويات إطلاق على ثلاث موجات</td><td>اعتماد ميزانية الموجة الأولى</td></tr>
+          <tr><th>٧ · دليل الاتجاه الفني</th><td>الوصف الإخراجي للعوالم الست والشخصيات المحورية وبيئات البرامج</td><td>اعتماد الاتجاه البصري</td></tr>
+          <tr><th>٨ · الكفاءات البشرية</th><td>بنية الفريق وأثر الخبرة على المخاطر وسرعة النفاذ للسوق</td><td>تثبيت الفريق النواة</td></tr>
+          <tr><th>٩ · مخطط العرض</th><td>هيكل العرض التقديمي في ١٢ شريحة</td><td>تجهيز جلسة المجلس</td></tr>
+          <tr><th>١٠ · القرار المطلوب</th><td>بنود الاعتماد، خطة المئة يوم، مؤشرات الأداء، البنود المفتوحة</td><td>التصويت</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pager"><span></span><button data-go="s1">التالي: الملخص التنفيذي</button></div>
+  </section>
+
+  <!-- ========== 1 · EXECUTIVE SUMMARY ========== -->
+  <section class="sec" id="s1">
+    <div class="sec-head"><p class="sec-num">القسم الأول</p><h2>الملخص التنفيذي والرؤية الاستراتيجية</h2></div>
+
+    <p class="sec-lead">نؤسس منصة إعلامية رقمية مستقلة للأطفال والأسرة، تُنتج محتوى عربياً أصيلاً بمعايير إنتاج عالمية، وتبنيه على منهجية نفسية وتربوية موثّقة بدل الاجتهاد الانطباعي.</p>
+
+    <h3>الفجوة</h3>
+    <p>الطفل العربي يستهلك اليوم محتوى مترجماً أو مدبلجاً في غالبه، صُمّم لسياق ثقافي آخر ووفق منظومة قيمية أخرى. والبديل المحلي القائم ينقسم إلى فئتين: محتوى عالي الجودة البصرية وفقير القيمة، أو محتوى قيميّ الطرح ومتواضع الصنعة. المسافة بين الفئتين هي مساحة عملنا، وهي مسافة تجارية قبل أن تكون تربوية.</p>
+
+    <h3>الرؤية والرسالة</h3>
+    <div class="callout">
+      <p><strong>الرؤية:</strong> أن نصبح المرجع الأول لمحتوى الطفل العربي الذي يثق به الأهل ويختاره الطفل بنفسه.</p>
+      <p><strong>الرسالة:</strong> إنتاج محتوى يجمع بين الإبهار البصري العالمي والبناء القيمي النفسي، عبر مسار إنتاجي محكوم بمعايير قابلة للقياس، يجعل المنصة شريكاً للأسرة لا بديلاً عنها.</p>
+    </div>
+
+    <h3>القيمة التنافسية الفارقة</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المحور</th><th>الطرح السائد في السوق</th><th>طرحنا</th></tr></thead>
+        <tbody>
+          <tr><th>مصدر المحتوى</th><td>دبلجة واقتناء حقوق</td><td>إنتاج أصلي مملوك بالكامل</td></tr>
+          <tr><th>المرجعية التربوية</th><td>اجتهاد فردي للكاتب</td><td>بطاقة معايير نفسية موحدة لكل حلقة</td></tr>
+          <tr><th>التقسيم العمري</th><td>فئة واحدة عريضة من ٣ إلى ١٠ سنوات</td><td>ست فئات بست هويات بصرية مستقلة</td></tr>
+          <tr><th>أسلوب القيمة</th><td>وعظ مباشر وخاتمة تلقينية</td><td>قيمة مضمرة داخل الحبكة والصراع</td></tr>
+          <tr><th>موقع الأهل</th><td>متلقٍّ سلبي</td><td>مسار محتوى موازٍ مصمَّم لهم</td></tr>
+          <tr><th>الأصل التجاري</th><td>حلقات تُستهلك وتنتهي</td><td>شخصيات تتحول إلى أصول فكرية قابلة للترخيص</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>معادلة العمل: إبهار بلا تفريغ، قيمة بلا وعظ</h3>
+    <p>المعادلة بسيطة في العنوان وصعبة في التنفيذ: الشكل يخطف الطفل، والمضمون يبني فيه شيئاً وهو لا ينتبه.</p>
+    <p>الطفل لا يقاوم الجودة البصرية ولا يجاملها. إن لم تكن الحركة سلسة والتصميم جذاباً والإيقاع الصوتي محكماً، خسرنا الثلاثين ثانية الأولى ولم يعد للمضمون وجود. لذلك الاستثمار في الأنيميشن والصوت ليس ترفاً تجميلياً، بل شرط وصول.</p>
+    <p>في المقابل، المضمون لا يُلقى في خاتمة الحلقة على لسان شخصية حكيمة. القيمة تُبنى عبر أربع أدوات:</p>
+    <ul>
+      <li><strong>الصراع</strong> — الشخصية تقع في الخطأ وتدفع ثمنه داخل الحبكة، لا خارجها.</li>
+      <li><strong>المفارقة</strong> — الطفل يكتشف الفرق بين ما ظنّه وما حدث فعلاً.</li>
+      <li><strong>الانعكاس العاطفي</strong> — نُظهر أثر التصرف على الآخر بدل إصدار حكم عليه.</li>
+      <li><strong>السؤال المفتوح</strong> — تنتهي الحلقة بسؤال لا بجواب، وينتقل الحوار إلى طاولة الأسرة.</li>
+    </ul>
+    <p>الوعظ المباشر يُنتج مقاومة نفسية عند الطفل فوق السادسة، وملالاً عند من هم دونها، والنتيجة واحدة: انخفاض متوسط مدة المشاهدة — وهو مؤشر أداء نقيسه ونُحاسَب عليه.</p>
+
+    <h3>الشخصيات المحورية: من مُقدِّم برنامج إلى أصل فكري</h3>
+    <p>الشخصيات — كرز ومعلوم ومفهوم وسعدون وما يليها — ليست أدوات تقديم. هي العمود الفقري للقيمة السوقية للعلامة، والبند الذي يرتفع تقييمه مع الوقت بينما تنخفض قيمة الحلقة المنفردة.</p>
+    <p>البرنامج يُشاهَد مرة أو مرتين ثم يُستهلك. الشخصية تُرافق الطفل عبر برامج متعددة، وتنتقل معه من فئة عمرية إلى أخرى، وتخرج من الشاشة إلى المنتَج. الفارق بين شركة تُنتج حلقات وشركة تملك شخصيات هو الفارق بين إيراد تشغيلي وأصل قابل للتقييم في الميزانية.</p>
+
+    <h4>مسار تحويل الشخصية إلى أصل — انقر كل مرحلة للتفاصيل</h4>
+    <div class="acc" data-acc>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">١</span><span class="ttl">الترسيخ الذهني</span><span class="tag">السنة الأولى</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المخرَج</dt><dd>حضور الشخصية في واجهة المستخدم والفواصل والأغاني وشارات البرامج.</dd>
+            <dt>القيمة المتولدة</dt><dd>تعرّف فوري على العلامة قبل أن يقرأ الطفل اسمها.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٢</span><span class="ttl">الترابط العاطفي</span><span class="tag">السنة الأولى والثانية</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المخرَج</dt><dd>خط درامي خاص بالشخصية، صوت وسمة حركية مميزة، ظهور عابر بين البرامج.</dd>
+            <dt>القيمة المتولدة</dt><dd>ولاء واختيار ذاتي من الطفل دون توجيه من الأهل.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٣</span><span class="ttl">التوسع البرامجي</span><span class="tag">السنة الثانية</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المخرَج</dt><dd>برامج فرعية تقودها الشخصية نفسها بدل بناء علامة جديدة من الصفر.</dd>
+            <dt>القيمة المتولدة</dt><dd>خفض كلفة إطلاق أي برنامج جديد وتقصير زمن وصوله إلى الجمهور.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٤</span><span class="ttl">الترخيص والمنتجات</span><span class="tag">السنة الثانية والثالثة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المخرَج</dt><dd>قرطاسية، ألعاب، ملابس، كتب، دمى مصنّعة بترخيص.</dd>
+            <dt>القيمة المتولدة</dt><dd>إيراد غير إعلاني وغير اشتراكي لا يرتبط بعدد ساعات البث.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٥</span><span class="ttl">التفاعل الرقمي والحدثي</span><span class="tag">السنة الثالثة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المخرَج</dt><dd>تطبيقات وألعاب تفاعلية وحضور في المعارض والفعاليات.</dd>
+            <dt>القيمة المتولدة</dt><dd>إطالة عمر الأصل وتعميق دورة حياته خارج الشاشة.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-brass">
+      <p><strong>حوكمة الشخصية.</strong> لكل شخصية دليل هوية مُلزِم لكل كاتب ومحرّك ومصمم: السمات النفسية الثابتة، ما تفعله الشخصية وما لا تفعله أبداً، نبرة الصوت، المفردات المسموحة، التصرفات المحظورة. هذا الدليل يحمي الأصل من التشوّه عند التوسع، وهو ما يفصل الشخصية الاستثمارية عن الشخصية العابرة.</p>
+    </div>
+
+    <div class="pager"><button data-go="s0">السابق: الغلاف</button><button data-go="s2">التالي: الإطار القيمي</button></div>
+  </section>
+
+  <!-- ========== 2 · PHILOSOPHY ========== -->
+  <section class="sec" id="s2">
+    <div class="sec-head"><p class="sec-num">القسم الثاني</p><h2>الإطار القيمي والتربوي والذكاء العاطفي</h2></div>
+
+    <p class="sec-lead">نحدد المنظومة السلوكية المستهدفة أولاً، ثم نبني البرامج التي تخدمها — لا العكس. هذا الترتيب هو ما يجعل المحفظة متماسكة وقابلة للتدقيق أمام مستثمر أو جهة رقابية أو شريك توزيع.</p>
+
+    <h3>المنظومات الست ومخرجاتها</h3>
+    <p>لكل منظومة مخرجات سلوكية محددة يمكن ملاحظتها على الطفل، لا مجرد عناوين عامة.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المنظومة</th><th>ما نبنيه فعلياً</th><th>المخرَج السلوكي الملاحَظ</th><th>الفئات الأكثر تركيزاً</th></tr></thead>
+        <tbody>
+          <tr><th>الأخلاق والسلوك</th><td>الصدق، الأمانة، الوفاء بالوعد، تحمّل نتيجة الخطأ</td><td>الطفل يعترف بخطئه ويصلحه بدل إخفائه</td><td class="num">٣–٨</td></tr>
+          <tr><th>الذكاء العاطفي</th><td>تسمية المشاعر، تنظيمها، قراءة مشاعر الآخر</td><td>الطفل يسمّي غضبه بدل أن يفرّغه سلوكياً</td><td class="num">١–١٠</td></tr>
+          <tr><th>حل النزاعات</th><td>التفاوض، الاعتذار، قبول الحل الوسط، إدارة الخسارة</td><td>الطفل يطلب دوره بدل انتزاعه</td><td class="num">٥–١٠</td></tr>
+          <tr><th>المواطنة الرقمية</th><td>الخصوصية، التحقق من المعلومة، التنمّر الإلكتروني، الوقت الرقمي</td><td>الطفل يتوقف قبل النشر ويسأل عن المصدر</td><td class="num">٩–١٣</td></tr>
+          <tr><th>حماية الطفل والحدود الشخصية</th><td>الجسد ملكي، السر المُقلق يُقال، الرفض حق، اللجوء إلى شخص آمن</td><td>الطفل يميّز بين السر الممتع والسر المُقلق ويخبر</td><td class="num">٣–١٣</td></tr>
+          <tr><th>احترام التنوع والمرأة</th><td>التنوع كأمر طبيعي، حضور المرأة في مواقع قرار وعلم ومهنة، رفض القولبة</td><td>الطفل لا يفاجأ بمهندسة أو طبيبة في الحبكة</td><td>كل الفئات</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>قواعد المعالجة — ما لا نفعله</h3>
+    <p>قواعد مُلزِمة لكل كاتب، تُراجَع في محطة المراجعة التربوية قبل أن يدخل النص مرحلة الرسم:</p>
+    <ul>
+      <li><strong>لا خاتمة وعظية.</strong> لا تنتهي الحلقة بشخصية تُلخّص الدرس على المشاهد.</li>
+      <li><strong>لا شخصية مثالية.</strong> البطل يخطئ، والخطأ جزء من بنائه لا انحراف عنه.</li>
+      <li><strong>لا إهانة للطفل ولا للفشل.</strong> السخرية من شخصية تفشل محظورة تماماً.</li>
+      <li><strong>لا خوف كأداة ضبط.</strong> لا عقاب مرعب ولا تهديد لتمرير قيمة.</li>
+      <li><strong>لا قولبة نمطية.</strong> لا ربط للمهنة أو الذكاء أو الانفعال بجنس أو مظهر أو لهجة.</li>
+      <li><strong>لا تسليع للطفل.</strong> لا محتوى يوظّف الطفل كأداة إعلانية داخل الحبكة.</li>
+    </ul>
+
+    <h3>معالجة حماية الطفل</h3>
+    <div class="callout">
+      <p>هذا المحور يخضع لحذر مضاعف، ولا يمر أي نص يخصه دون توقيع مختص. القاعدة التشغيلية: <strong>نُمكّن الطفل ولا نُخيفه.</strong></p>
+      <p>نستخدم لغة إيجابية وقائية — «جسدي لي»، «أستطيع أن أقول لا»، «أخبر شخصاً أثق به» — ونتجنب تماماً تصوير أي موقف إساءة أو تهديد على الشاشة. الرسالة تصل عبر المبدأ لا عبر المشهد. ولكل حلقة في هذا المحور مسار مرافق للأهل يشرح كيف يفتحون الحديث مع طفلهم بعد المشاهدة.</p>
+    </div>
+
+    <h3>المنصة شريكاً للأسرة</h3>
+    <p>الأهل هم من يدفع الاشتراك ومن يمنح الثقة ومن يستطيع سحبها في دقيقة. شراكتهم تُبنى على أربعة التزامات:</p>
+    <ol>
+      <li><strong>الشفافية</strong> — كل برنامج يُعلن فئته العمرية وهدفه النمائي والقيمة التي يعالجها، قبل التشغيل لا بعده.</li>
+      <li><strong>التحكم</strong> — ملفات مستقلة لكل طفل، حدود زمنية، وإقفال الفئات الأعلى عمرياً.</li>
+      <li><strong>الامتداد</strong> — محتوى موازٍ للأهل يحوّل المشاهدة إلى حوار.</li>
+      <li><strong>الأمان الإعلاني</strong> — لا إعلانات طرف ثالث داخل محتوى الفئات دون الثامنة، ولا جمع بيانات سلوكية للتسويق.</li>
+    </ol>
+    <p>هذه الالتزامات ليست بنوداً أخلاقية معلّقة في الهواء. هي ما يصنع معدل احتفاظ مرتفعاً وانخفاضاً في معدل الإلغاء، وهما المؤشران اللذان يحدّدان قيمة أي منصة اشتراكية.</p>
+
+    <div class="pager"><button data-go="s1">السابق: الملخص التنفيذي</button><button data-go="s3">التالي: الفئات والهويات</button></div>
+  </section>
+
+  <!-- ========== 3 · AGE SEGMENTS ========== -->
+  <section class="sec" id="s3">
+    <div class="sec-head"><p class="sec-num">القسم الثالث</p><h2>التقسيم العمري والهويات البصرية الست</h2></div>
+
+    <p class="sec-lead">معظم المنصات العربية تخاطب الأطفال ككتلة واحدة من ٣ إلى ١٠ سنوات. النتيجة معروفة: محتوى طفولي أكثر من اللازم لابن التاسعة، ومعقّد أكثر من اللازم لابن الرابعة، وخسارة للطرفين.</p>
+
+    <h3>المنطق الاستثماري وراء التجزئة</h3>
+    <p>نبني ست فئات، لكل منها هوية بصرية مستقلة: لوحة ألوان، أسلوب تصميم شخصيات، إيقاع مونتاج، طبقة موسيقية، ونمط حوار. الفائدة مزدوجة:</p>
+    <ul>
+      <li><strong>تربوياً</strong> — المحتوى يطابق القدرة الإدراكية للفئة، فيرتفع الفهم ومعه الأثر.</li>
+      <li><strong>تجارياً</strong> — الطفل يبقى داخل المنصة من سن سنة إلى ثلاث عشرة سنة. دورة حياة المشترك تمتد إلى نحو اثني عشر عاماً بدل أربعة أو خمسة، وهذا أهم رقم في نموذج الأعمال كله.</li>
+    </ul>
+
+    <h3>مصفوفة الهويات الست</h3>
+    <p>انقر أي فئة لاستعراض فلسفتها النمائية والبصرية كاملة.</p>
+
+    <div class="acc" data-acc>
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#D94F4F"></span><span class="ttl">١–٢ سنة · التفاعل الأولي</span><span class="tag">٢–٤ دقائق للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>تمييز الأشكال والأصوات وبناء الطمأنينة.</dd>
+            <dt>البنية السردية</dt><dd>بلا حبكة — مشهد متكرر قصير بإيقاع متوقع.</dd>
+            <dt>لوحة الألوان</dt><dd>كتل أساسية كبيرة، تباين عالٍ، خلفيات هادئة بلا تفاصيل.</dd>
+            <dt>تصميم الشخصيات</dt><dd>أشكال دائرية بسيطة، ملامح مختزلة إلى الحد الأدنى.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>بطيء جداً، لقطة كل ٤–٦ ثوانٍ، تكرار مقصود.</dd>
+            <dt>الصوت</dt><dd>ألحان ناعمة متكررة وأصوات طبيعية.</dd>
+            <dt>اللغة</dt><dd>كلمات مفردة وتكرار.</dd>
+            <dt>القالب الغالب</dt><dd>أنيميشن 2D بسيط وموشن غرافيك.</dd>
+            <dt>مفتاح التفاعل</dt><dd>التكرار والتوقّع.</dd>
+            <dt>ما نتجنبه</dt><dd>الوميض السريع والضجيج والقطع الحاد.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#E8912B"></span><span class="ttl">٣–٤ سنوات · التصرف والاكتشاف</span><span class="tag">٥–٧ دقائق للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>اختبار الحدود وتوسيع المفردات.</dd>
+            <dt>البنية السردية</dt><dd>حبكة خطية من حدث واحد واضح.</dd>
+            <dt>لوحة الألوان</dt><dd>ألوان زاهية مشبعة ومتعددة.</dd>
+            <dt>تصميم الشخصيات</dt><dd>شخصيات مرحة مبالغة الرؤوس والعيون.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>سريع ومرح، لقطة كل ٢–٣ ثوانٍ.</dd>
+            <dt>الصوت</dt><dd>أغانٍ راقصة وجمل لحنية قصيرة قابلة للحفظ.</dd>
+            <dt>اللغة</dt><dd>جمل من ٣ إلى ٥ كلمات.</dd>
+            <dt>القالب الغالب</dt><dd>أنيميشن 2D أو 3D ودمى.</dd>
+            <dt>مفتاح التفاعل</dt><dd>التقليد والحركة.</dd>
+            <dt>ما نتجنبه</dt><dd>الغموض والخوف والحبكات المركّبة.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#3E9E8F"></span><span class="ttl">٥–٦ سنوات · التعاون وبناء العلاقات</span><span class="tag">٨–١١ دقيقة للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>الانتماء إلى مجموعة وتقاسم الدور.</dd>
+            <dt>البنية السردية</dt><dd>حبكة بمشكلة وحل مشترك بين شخصيات.</dd>
+            <dt>لوحة الألوان</dt><dd>ألوان دافئة حيوية بتدرجات.</dd>
+            <dt>تصميم الشخصيات</dt><dd>شخصيات متنوعة بسمات جسدية كوميدية.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>متوسط مع ذروات كوميدية مدروسة.</dd>
+            <dt>الصوت</dt><dd>موسيقى مغامرة ومؤثرات كوميدية.</dd>
+            <dt>اللغة</dt><dd>جمل قصيرة وحوار متبادل.</dd>
+            <dt>القالب الغالب</dt><dd>أنيميشن 3D وكوميديا جسدية.</dd>
+            <dt>مفتاح التفاعل</dt><dd>اللعب وتقمّص الدور.</dd>
+            <dt>ما نتجنبه</dt><dd>الإقصاء والسخرية من الفشل.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#2E6B9E"></span><span class="ttl">٧–٨ سنوات · فهم المحيط والآخر</span><span class="tag">١١–١٣ دقيقة للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>إدراك وجهة نظر الآخر.</dd>
+            <dt>البنية السردية</dt><dd>حبكة واضحة بثلاث مراحل.</dd>
+            <dt>لوحة الألوان</dt><dd>لوحة أكثر واقعية بدرجات متوسطة.</dd>
+            <dt>تصميم الشخصيات</dt><dd>نسب أقرب إلى الواقع وتعبير وجهي دقيق.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>متوازن يخدم الحوار لا يسابقه.</dd>
+            <dt>الصوت</dt><dd>موسيقى موقف تدعم الحبكة.</dd>
+            <dt>اللغة</dt><dd>حوار طبيعي بمفردات مدرسية.</dd>
+            <dt>القالب الغالب</dt><dd>مختلط: أنيميشن مع Live-Action.</dd>
+            <dt>مفتاح التفاعل</dt><dd>التساؤل والمقارنة.</dd>
+            <dt>ما نتجنبه</dt><dd>التبسيط المخلّ وأحكام الأبيض والأسود.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#6B4E9E"></span><span class="ttl">٩–١٠ سنوات · التفكير قبل إطلاق الحكم</span><span class="tag">١٣–١٦ دقيقة للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>تعليق الحكم وفحص الدوافع.</dd>
+            <dt>البنية السردية</dt><dd>حبكة بمفارقة ومنعطف أخلاقي.</dd>
+            <dt>لوحة الألوان</dt><dd>ألوان مدروسة، إضاءة درامية، ظلال محسوبة.</dd>
+            <dt>تصميم الشخصيات</dt><dd>نسب واقعية ولغة جسد مدروسة.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>متأنٍّ يسمح بالتأمل والصمت.</dd>
+            <dt>الصوت</dt><dd>موسيقى درامية وتوتر مقاس.</dd>
+            <dt>اللغة</dt><dd>حوار يحمل طبقتين: ظاهر ومضمر.</dd>
+            <dt>القالب الغالب</dt><dd>أنيميشن 3D درامي أو Live-Action.</dd>
+            <dt>مفتاح التفاعل</dt><dd>الجدل وإبداء الرأي.</dd>
+            <dt>ما نتجنبه</dt><dd>الجواب الجاهز والخاتمة الوعظية.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head"><span class="band" style="background:#9E2B2B"></span><span class="ttl">١١–١٣ سنة · اختيار الهوية وبناء الذات</span><span class="tag">١٥–٢٢ دقيقة للحلقة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>المهمة النفسية</dt><dd>تكوين الموقف والهوية الذاتية.</dd>
+            <dt>البنية السردية</dt><dd>حبكة مركّبة بخطين وشخصيات رمادية.</dd>
+            <dt>لوحة الألوان</dt><dd>لوحة سينمائية، تباين منخفض، درجات مركّبة.</dd>
+            <dt>تصميم الشخصيات</dt><dd>تصميم شبه واقعي بتفاصيل ملبسية وشخصية.</dd>
+            <dt>الإيقاع والمونتاج</dt><dd>سينمائي بتنويع مقصود في الوتيرة.</dd>
+            <dt>الصوت</dt><dd>موسيقى معاصرة قريبة من ذائقة المراهق.</dd>
+            <dt>اللغة</dt><dd>حوار واقعي بإيقاع جيل، دون ابتذال.</dd>
+            <dt>القالب الغالب</dt><dd>Live-Action سينمائي أو 3D متقدم.</dd>
+            <dt>مفتاح التفاعل</dt><dd>الموقف والاختيار الشخصي.</dd>
+            <dt>ما نتجنبه</dt><dd>التنميط والخطاب الفوقي والتصنّع.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <h3>كيف تُستثمر التجزئة في المنتج والتسويق</h3>
+    <ul>
+      <li><strong>واجهة المستخدم</strong> — ست بوابات بصرية مستقلة، لا قائمة واحدة مزدحمة. الطفل يتعرف على عالمه من اللون قبل أن يقرأ.</li>
+      <li><strong>ترقية تلقائية</strong> — عند بلوغ الطفل حداً عمرياً يُقترح على الأهل الانتقال إلى العالم التالي: لحظة تجديد ثقة وتجديد اشتراك في آن واحد.</li>
+      <li><strong>تسعير قابل للتوسع</strong> — إمكانية طرح باقات بحسب عدد العوالم المفتوحة للأسرة.</li>
+      <li><strong>بيع الحقوق</strong> — كل عالم قابل للتسويق كحزمة مستقلة لقنوات ومنصات إقليمية، وهذا يفتح قناة إيراد ثانية غير الاشتراك.</li>
+    </ul>
+
+    <div class="callout callout-brass">
+      <p><strong>ملاحظة تنفيذية.</strong> الهويات الست لا تعني ستة فرق إنتاج منفصلة، بل دليل هوية واحداً بستة أقسام، ومكتبة أصول بصرية وصوتية مشتركة تُعاد صياغتها لكل عالم. هذا يحافظ على تماسك العلامة ويمنع تضخم الكلفة.</p>
+    </div>
+
+    <div class="pager"><button data-go="s2">السابق: الإطار القيمي</button><button data-go="s4">التالي: محرك الجودة</button></div>
+  </section>
+
+  <!-- ========== 4 · PRODUCTION ENGINE ========== -->
+  <section class="sec" id="s4">
+    <div class="sec-head"><p class="sec-num">القسم الرابع</p><h2>محرك الجودة ومسار الإنتاج العلمي</h2></div>
+
+    <p class="sec-lead">البرامج تُقلَّد والأفكار تُشابَه. ما لا يُقلَّد بسهولة هو خط إنتاج منضبط يُخرج جودة ثابتة بكلفة متوقعة. هذا القسم هو الفارق بين ورشة إبداعية تعتمد على مزاج فريقها وبين شركة محتوى قابلة للتوسع.</p>
+
+    <h3>ثلاث نتائج مباشرة</h3>
+    <ul>
+      <li><strong>خفض المخاطر</strong> — الخطأ يُكتشف في مرحلة النص لا بعد إنفاق ميزانية التحريك.</li>
+      <li><strong>تنبؤ بالكلفة والجدول</strong> — محطات محددة بمخرَج محدد ومسؤول محدد.</li>
+      <li><strong>قابلية التدقيق</strong> — دليل موثق على كل قرار محتوى أمام أي جهة رقابية أو شريك توزيع.</li>
+    </ul>
+
+    <h3>خط الإنتاج: اثنتا عشرة محطة</h3>
+    <div class="flow">
+      <span>فكرة</span><span>هدف نمائي</span><span class="gate">مراجعة نفسية</span><span>قصة</span><span>سيناريو</span><span class="gate">مراجعة تربوية</span><span>Storyboard</span><span class="gate">مراجعة حماية الطفل</span><span>إنتاج</span><span class="gate">اختبار عينة أطفال</span><span>تعديل نهائي</span><span>نشر وبث</span>
+    </div>
+    <p class="flow-key">المحطات الملوّنة هي بوابات توقّف إلزامية: المراجعة النفسية تُعيد الفكرة، المراجعة التربوية تُعيد السيناريو، واختبار العينة يُعيد المعالجة. لا تمر الحلقة إلى ما بعدها دون إجازة موقّعة.</p>
+
+    <h4>تفاصيل المحطات — انقر أي محطة</h4>
+    <div class="acc" data-acc>
+      <div class="acc-item"><button class="acc-head"><span class="step">١</span><span class="ttl">الفكرة</span><span class="tag">غرفة التطوير</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>موجز من صفحة واحدة.</dd><dt>معيار العبور</dt><dd>تنتمي لفئة عمرية محددة ولا تكرر فكرة قائمة في المحفظة.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٢</span><span class="ttl">الهدف النمائي</span><span class="tag">مدير المحتوى والباحث النفسي</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>هدف واحد قابل للقياس.</dd><dt>معيار العبور</dt><dd>هدف واحد فقط لكل حلقة، لا ثلاثة.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٣</span><span class="ttl">المراجعة النفسية</span><span class="tag">بوابة إلزامية</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المسؤول</dt><dd>الباحث النفسي.</dd><dt>المخرَج</dt><dd>إجازة أو رفض مع تعليل مكتوب.</dd><dt>معيار العبور</dt><dd>ملاءمة نمائية للفئة وخلوّ من محفزات القلق.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٤</span><span class="ttl">القصة</span><span class="tag">كاتب القصة</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>معالجة من صفحتين.</dd><dt>معيار العبور</dt><dd>صراع واضح وثمن واقعي للخطأ داخل الحبكة.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٥</span><span class="ttl">السيناريو</span><span class="tag">كاتب السيناريو</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>نص كامل بالحوار.</dd><dt>معيار العبور</dt><dd>القيمة مضمرة في الحبكة لا في خاتمة معلنة.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٦</span><span class="ttl">المراجعة التربوية</span><span class="tag">بوابة إلزامية</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المسؤول</dt><dd>المستشار التربوي.</dd><dt>المخرَج</dt><dd>نص معتمد أو إعادة كتابة.</dd><dt>معيار العبور</dt><dd>مطابقة قواعد المعالجة الست في القسم الثاني.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٧</span><span class="ttl">Storyboard</span><span class="tag">المخرج والمصمم</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>لوحة قصصية كاملة.</dd><dt>معيار العبور</dt><dd>إيقاع اللقطات مطابق لدليل الفئة العمرية.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٨</span><span class="ttl">مراجعة حماية الطفل</span><span class="tag">بوابة إلزامية</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المسؤول</dt><dd>مختص حماية الطفل.</dd><dt>المخرَج</dt><dd>توقيع إلزامي قبل الإنتاج.</dd><dt>معيار العبور</dt><dd>لا مشهد إساءة، لا إيحاء، لا مصدر خوف.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٩</span><span class="ttl">الإنتاج</span><span class="tag">فرق التحريك والتصوير والصوت</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>نسخة أولى كاملة.</dd><dt>معيار العبور</dt><dd>مطابقة دليل الهوية البصرية للعالم المستهدف.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">١٠</span><span class="ttl">اختبار عينة أطفال</span><span class="tag">بوابة إلزامية</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المسؤول</dt><dd>وحدة الأبحاث.</dd><dt>المخرَج</dt><dd>تقرير مشاهدة بأربعة مؤشرات.</dd><dt>معيار العبور</dt><dd>اجتياز ثلاثة من أربعة مؤشرات على الأقل.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">١١</span><span class="ttl">التعديل النهائي</span><span class="tag">المخرج</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>نسخة معتمدة.</dd><dt>معيار العبور</dt><dd>معالجة كل ملاحظة حرجة في تقرير الاختبار.</dd></dl></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">١٢</span><span class="ttl">النشر والبث</span><span class="tag">التشغيل</span><span class="chev">▾</span></button><div class="acc-body"><dl><dt>المخرَج</dt><dd>حلقة منشورة على المنصة.</dd><dt>معيار العبور</dt><dd>اكتمال البيانات الوصفية وتصنيف العمر وبطاقة الأهل.</dd></dl></div></div>
+    </div>
+
+    <h3>اختبار عينة الأطفال: أين نقيس فعلاً</h3>
+    <p>الاختبار يجري على مجموعتين لكل حلقة، من ثمانية إلى اثني عشر طفلاً في كل مجموعة، ضمن الفئة العمرية المستهدفة وبحضور وليّ أمر.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المؤشر</th><th>كيف يُقاس</th><th>الحد الأدنى للقبول</th></tr></thead>
+        <tbody>
+          <tr><th>الانتباه</th><td>ملاحظة لحظات الانصراف عن الشاشة</td><td>لا انصراف متكرر قبل الدقيقة الأخيرة</td></tr>
+          <tr><th>الفهم</th><td>سؤال مفتوح بعد المشاهدة: ماذا حدث؟</td><td>٧ من ١٠ يعيدون سرد الحدث المحوري</td></tr>
+          <tr><th>الاستجابة العاطفية</th><td>رصد التعبير عند لحظة الذروة</td><td>تفاعل ملحوظ عند المشهد المقصود</td></tr>
+          <tr><th>استخراج القيمة</th><td>سؤال: ماذا كان يمكن أن يفعل بدل ذلك؟</td><td>٦ من ١٠ يصلون للقيمة دون تلقين</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>إخفاق مؤشرين أو أكثر يُعيد الحلقة إلى محطة السيناريو. الإجراء يبدو مكلفاً في ظاهره، لكنه أرخص بكثير من إطلاق موسم كامل يفشل في الوصول.</p>
+
+    <h3>بطاقة المعايير النفسية والسيناريو الموحدة</h3>
+    <p>وحدة الحوكمة الأساسية في المنصة. لا يدخل أي نص مرحلة الرسم قبل اكتمالها وتوقيعها، وهي المستند الذي يثبت أن المحتوى خاضع لمقاييس مؤسسية لا لانطباع فردي.</p>
+
+    <div class="acc" data-acc>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">◆</span><span class="ttl">نموذج تطبيقي — «لو كنت مكانه» · حلقة ٧ «الدور الضائع»</span><span class="tag">الفئة ٧–٨ سنوات</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <dl>
+            <dt>الفئة العمرية</dt><dd>٧–٨ سنوات</dd>
+            <dt>المهارة المستهدفة</dt><dd>تبنّي وجهة نظر الآخر</dd>
+            <dt>القيمة</dt><dd>الإنصاف</dd>
+            <dt>التحدي السلوكي</dt><dd>الطفل يقفز دوره في طابور اللعب ويبرر ذلك لنفسه</dd>
+            <dt>المشاعر المصاحبة</dt><dd>الحماس، ثم الإحراج، ثم التعاطف</dd>
+            <dt>المهارة التنفيذية</dt><dd>ضبط الاندفاع وانتظار الدور</dd>
+            <dt>المعالجة السردية</dt><dd>ينتقل البطل إلى موقع الطفل الذي تخطّاه، ويعيش الموقف من الطرف الآخر</dd>
+            <dt>ما يُمنع في الحلقة</dt><dd>توبيخ البطل من شخصية بالغة، أو إظهاره في موقع سخرية</dd>
+            <dt>رسالة الأهل</dt><dd>الانتظار مهارة تُتعلَّم بالتدريب لا بالتذكير. اجعلوا دوره يأتي فعلاً، ولا تختصروه له.</dd>
+            <dt>سؤال ما بعد المشاهدة</dt><dd>متى كانت آخر مرة انتظرت فيها دورك وكان الانتظار صعباً؟</dd>
+            <dt>مؤشر النجاح</dt><dd>الطفل يذكر شعور الطرف الآخر دون أن يُسأل عنه مباشرة</dd>
+            <dt>التوقيعات المطلوبة</dt><dd>الباحث النفسي · المستشار التربوي · مختص حماية الطفل</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>قيمة البطاقة استثمارياً.</strong> كل حلقة في الأرشيف تحمل بطاقتها. هذا يعني أن مكتبة المنصة ليست ساعات محتوى فحسب، بل قاعدة بيانات تربوية مفهرسة بالمهارة والقيمة والفئة العمرية — أصل قابل للبيع للمدارس ووزارات التعليم ومنظمات الطفولة، وقناة إيراد مؤسسية مستقلة عن الاشتراك الفردي.</p>
+    </div>
+
+    <div class="pager"><button data-go="s3">السابق: الفئات والهويات</button><button data-go="s5">التالي: شراكة الأسرة</button></div>
+  </section>
+
+  <!-- ========== 5 · FAMILY ========== -->
+  <section class="sec" id="s5">
+    <div class="sec-head"><p class="sec-num">القسم الخامس</p><h2>امتداد التجربة للأسرة</h2></div>
+
+    <p class="sec-lead">كل منصة أطفال تقريباً تُضيف قسماً للأهل، وكل هذه الأقسام تقريباً لا تُقرأ. السبب واحد: تُكتب كمحاضرات. الأم التي أنهت يومها للتو لا تملك عشر دقائق لمقال — تملك تسعين ثانية.</p>
+
+    <h3>الصيغة: سؤال + نصيحة + نشاط</h3>
+    <p>وحدة محتوى واحدة لا تتجاوز التسعين ثانية قراءةً، مرفقة بكل حلقة، وبثلاثة عناصر فقط:</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>العنصر</th><th>الوظيفة</th><th>الحد</th></tr></thead>
+        <tbody>
+          <tr><th>سؤال واحد</th><td>يفتح الحوار مع الطفل بعد المشاهدة مباشرة</td><td>سطر واحد، مفتوح، غير استجوابي</td></tr>
+          <tr><th>نصيحة سريعة</th><td>معلومة نفسية واحدة قابلة للتطبيق اليوم</td><td>سطران، بلا مصطلحات</td></tr>
+          <tr><th>نشاط عملي واحد</th><td>تمرين من خمس دقائق بأدوات المنزل</td><td>خطوة أو خطوتان، بلا تحضير</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-brass">
+      <p><strong>قواعد الكتابة الملزمة.</strong> لا مصطلح أكاديمي دون شرح بكلمة دارجة، لا لوم للأهل ولا تحميلهم مسؤولية، لا صيغة أمر، ولا أكثر من فكرة واحدة في البطاقة.</p>
+    </div>
+
+    <h3>نموذج تطبيقي</h3>
+    <div class="quote-card">
+      <p><span class="qlabel">مرافق حلقة «الدور الضائع» — لو كنت مكانه · ٧–٨ سنوات</span></p>
+      <p><strong>السؤال:</strong> اسأله اليوم — متى كان الانتظار صعباً عليك؟</p>
+      <p><strong>النصيحة:</strong> انتظار الدور ليس أدباً، بل عضلة في الدماغ تنمو بالتمرين. الطفل الذي يُختصر له الانتظار دائماً لا تنمو عنده هذه العضلة.</p>
+      <p><strong>النشاط في خمس دقائق:</strong> العبا لعبة يتناوبان فيها الدور، واجعل دورك يطول قليلاً بشكل مقصود. راقب كيف يتصرف، وسمِّ له شعوره: «صعب تنتظر، صح؟»</p>
+    </div>
+
+    <h3>مسارات محتوى الأهل الثلاثة</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المسار</th><th>الشكل</th><th>التكرار</th><th>الهدف</th></tr></thead>
+        <tbody>
+          <tr><th>بطاقة الحلقة</th><td>نص قصير داخل التطبيق بعد المشاهدة</td><td>مع كل حلقة</td><td>تحويل المشاهدة إلى حوار</td></tr>
+          <tr><th>دقيقة مع مختص</th><td>فيديو من ٦٠ إلى ٩٠ ثانية يقدّمه مختص نفسي</td><td>أسبوعي</td><td>بناء الثقة المهنية بالمنصة</td></tr>
+          <tr><th>مسار الأسبوعين</th><td>سلسلة قصيرة حول تحدٍّ واحد: نوبات الغضب، الشاشات، النوم</td><td>شهري</td><td>معالجة عميقة لموضوع يؤرق الأهل</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>لماذا هذا بند استثماري لا بند علاقات عامة</h3>
+    <ol>
+      <li><strong>رفع الاحتفاظ</strong> — المشترك الذي يستخدم بطاقات الأهل يتعامل مع المنصة كأداة تربوية لا كخدمة ترفيه قابلة للاستبدال.</li>
+      <li><strong>تبرير السعر</strong> — القيمة المدركة ترتفع حين يشعر الأهل أنهم يشترون شراكة لا مكتبة فيديو.</li>
+      <li><strong>قناة تسويق مجانية</strong> — الأهل هم قناة التوصية الأقوى في هذا القطاع، وبطاقة مفيدة واحدة تُشارَك أكثر من أي حملة إعلانية.</li>
+    </ol>
+    <p>إضافةً إلى ذلك، يفتح هذا المسار الباب أمام شراكات مع جهات الطفولة والأسرة والمراكز التربوية — وهي شراكات ذات قيمة تسويقية ومؤسسية تفوق كلفتها بكثير.</p>
+
+    <div class="pager"><button data-go="s4">السابق: محرك الجودة</button><button data-go="s6">التالي: محفظة البرامج</button></div>
+  </section>
+
+  <!-- ========== 6 · PORTFOLIO ========== -->
+  <section class="sec" id="s6">
+    <div class="sec-head"><p class="sec-num">القسم السادس</p><h2>محفظة الإنتاج البرامجي</h2></div>
+
+    <p class="sec-lead">المحفظة ليست قائمة أفكار جيدة، بل توزيع محسوب على ثلاثة محاور: تغطية الفئات العمرية الست، توازن الكلفة بين القوالب الفنية، وتنويع الأدوار داخل شبكة البث.</p>
+
+    <h3>التصنيف التشغيلي</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>الفئة</th><th>الدور</th><th>الكلفة النسبية</th><th>نصيبها من المحفظة</th></tr></thead>
+        <tbody>
+          <tr><th>برامج الواجهة</th><td>تحمل العلامة وتقود التسويق</td><td>مرتفعة</td><td class="num">نحو ٢٠٪</td></tr>
+          <tr><th>العمود الفقري</th><td>تملأ شبكة البث وتبني العادة اليومية</td><td>متوسطة</td><td class="num">نحو ٤٥٪</td></tr>
+          <tr><th>برامج التغذية</th><td>حلقات قصيرة عالية التكرار منخفضة الكلفة</td><td>منخفضة</td><td class="num">نحو ٢٥٪</td></tr>
+          <tr><th>برامج التجريب</th><td>اختبار أفكار قبل الاستثمار الكامل</td><td>منخفضة</td><td class="num">نحو ١٠٪</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>هذا التوزيع يحمي الميزانية: لا نُراهن على برنامج واحد باهظ، ولا نملأ المنصة بمحتوى رخيص يُضعف العلامة.</p>
+
+    <h3>حزمة البرامج الكاملة</h3>
+    <p>ثمانية عشر برنامجاً: ثلاثة عشر من الحزمة القائمة وخمسة مقترحة حديثاً لسد فجوات التغطية. رشّح بالفئة العمرية، وانقر أي برنامج لاستعراض هدفه النمائي.</p>
+
+    <div class="filters" id="ageFilters">
+      <button class="chip" data-age="all" aria-pressed="true">كل الفئات</button>
+      <button class="chip" data-age="a1" aria-pressed="false">١–٢ سنة</button>
+      <button class="chip" data-age="a2" aria-pressed="false">٣–٤ سنوات</button>
+      <button class="chip" data-age="a3" aria-pressed="false">٥–٦ سنوات</button>
+      <button class="chip" data-age="a4" aria-pressed="false">٧–٨ سنوات</button>
+      <button class="chip" data-age="a5" aria-pressed="false">٩–١٠ سنوات</button>
+      <button class="chip" data-age="a6" aria-pressed="false">١١–١٣ سنة</button>
+      <button class="chip" data-age="new" aria-pressed="false">المقترحة حديثاً</button>
+    </div>
+    <p class="count-note" id="countNote">يُعرض ١٨ برنامجاً.</p>
+
+    <div class="tbl-scroll">
+      <table id="progTable">
+        <thead>
+          <tr><th>البرنامج</th><th>الفئة</th><th>القالب والتقنية</th><th>حلقات الموسم</th><th>مدة الحلقة</th><th>التصنيف</th></tr>
+        </thead>
+        <tbody id="progBody"></tbody>
+      </table>
+    </div>
+
+    <h3>تغطية الفئات العمرية</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>الفئة العمرية</th><th>عدد البرامج بعد الحزمة الجديدة</th><th>الحالة قبل الإضافة</th></tr></thead>
+        <tbody>
+          <tr><th>١–٢ سنة</th><td class="num">٢</td><td>فجوة — برنامج واحد فقط</td></tr>
+          <tr><th>٣–٤ سنوات</th><td class="num">٥</td><td>تغطية جيدة</td></tr>
+          <tr><th>٥–٦ سنوات</th><td class="num">٧</td><td>تغطية قوية</td></tr>
+          <tr><th>٧–٨ سنوات</th><td class="num">٧</td><td>تغطية قوية</td></tr>
+          <tr><th>٩–١٠ سنوات</th><td class="num">٦</td><td>تغطية متوسطة تحتاج تعزيزاً</td></tr>
+          <tr><th>١١–١٣ سنة</th><td class="num">٤</td><td>فجوة حرجة — برنامج واحد فقط</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>الصورة الكاملة للموسم الأول</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المؤشر</th><th>القيمة التقديرية للمرحلة الأولى</th></tr></thead>
+        <tbody>
+          <tr><th>عدد البرامج</th><td class="num">١٨ (قرار تحريري ثابت)</td></tr>
+          <tr><th>عدد الحلقات</th><td class="num">أكثر من ٥٠٠ حلقة — تقديري</td></tr>
+          <tr><th>إجمالي ساعات المحتوى</th><td class="num">نحو ٦٨ ساعة — تقديري</td></tr>
+          <tr><th>تغطية الفئات العمرية</th><td>الست كاملة</td></tr>
+          <tr><th>الشخصيات القابلة للترخيص</th><td>ست شخصيات محورية على الأقل</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine-print">أعداد الحلقات والساعات مؤشرات تخطيطية لحجم الإنتاج ونطاقه، لا التزامات تعاقدية. تُثبَّت الأرقام النهائية في وثيقة الجدوى المالية بعد إقرار كلفة الدقيقة المنتجة لكل قالب فني وحسم أولويات الموجات الثلاث.</p>
+
+    <h3>أولويات الإطلاق</h3>
+    <p>لا تُنتج الحزم دفعة واحدة. الترتيب المقترح على ثمانية عشر شهراً:</p>
+    <div class="acc" data-acc>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">١</span><span class="ttl">الموجة الأولى — الأشهر ١ إلى ٦</span><span class="tag">كثافة حلقات بكلفة معتدلة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <p>سعدون · كليبات غنائية · مدرسة الحيوانات · خطوة خطوة · فن الرسم مع كرز</p>
+          <p>الهدف: ملء المنصة بسرعة وترسيخ الشخصيات المحورية في ذهن الطفل قبل إنفاق ميزانيات الإنتاج الثقيل.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٢</span><span class="ttl">الموجة الثانية — الأشهر ٦ إلى ١٢</span><span class="tag">برامج الواجهة</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <p>لو كنت مكانه · مفهوم ومعلوم · حي الرمان · حكاياتي · جدتي والمهن</p>
+          <p>الهدف: البرامج التي تحمل العلامة وتقود التسويق وتُبنى عليها حملة الاستقطاب الرئيسية.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span class="step">٣</span><span class="ttl">الموجة الثالثة — الأشهر ١٢ إلى ١٨</span><span class="tag">الفئات الأكبر عمراً</span><span class="chev">▾</span></button>
+        <div class="acc-body">
+          <p>زر واحد · صديقي الذكي · مساحتي · ورشة الخطأ · العبقري الصغير</p>
+          <p>الهدف: فتح الفئات من تسع سنوات فما فوق بعد استقرار قاعدة المشتركين وإثبات النموذج في الفئات الأصغر.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pager"><button data-go="s5">السابق: شراكة الأسرة</button><button data-go="s7">التالي: دليل الاتجاه الفني</button></div>
+  </section>
+
+  <!-- ========== 7 · VISUAL ========== -->
+  <section class="sec" id="s7">
+    <div class="sec-head"><p class="sec-num">القسم السابع</p><h2>دليل الاتجاه الفني والمراجع البصرية</h2></div>
+
+    <p class="sec-lead">هذا القسم هو العقد البصري للمشروع: وصف إخراجي مكتوب يُسلَّم إلى مدير الفن وفرق التصميم والإضاءة والتصوير، ويُقرأ في الوقت نفسه بوصفه وعداً بصرياً أمام المستثمر. كل بطاقة أدناه تُثبّت هوية عالم أو شخصية أو بيئة قبل أن تُرسم، حتى لا تبقى الجودة البصرية رهينة اجتهاد فردي متغيّر من حلقة إلى أخرى.</p>
+
+    <div class="callout callout-brass">
+      <p><strong>ملاحظة تشغيلية.</strong> تُعتمد نسبة ١٦:٩ في اللقطات المشهدية وأوراق البيئات، ونسبة ١:١ في أوراق تصميم الشخصيات والمنتجات المشتقة منها. يُسلَّم هذا الدليل إلى مدير الفن بوصفه مرجع اتجاه مُلزِماً، ثم تُبنى اللوحات والتصاميم النهائية يدوياً داخل دليل الهوية المعتمد. ولا تدخل أي لوحة مرجعية أو صورة أولية إلى الحلقات أو المواد المنشورة.</p>
+    </div>
+
+    <h3>الهويات البصرية الست</h3>
+
+    <h4>١–٢ سنة · عالم التفاعل الأولي</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم يقوم على قاعدة واحدة: لا شيء يُشتّت. كتلة واحدة تتحرك في فراغ هادئ، وشكل واحد يظهر ليكافئ العين على انتباهها. البساطة هنا قرار علمي لا قرار اقتصادي، لأن الجهاز البصري في هذه السن لا يقرأ التفصيل بل يقرأ التباين، ولا يتابع الحركة المركّبة بل يتابع الوعد بتكرارها.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>ألوان أساسية صريحة — أحمر وأصفر وأزرق — على أرضية كريمية دافئة، بلا تدرجات ولا ألوان وسيطة، وبتباين عالٍ يضمن وصول الشكل إلى عين لم تكتمل حدّتها بعد.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>مسطحة متساوية بلا ظل ولا مصدر محدد. الظل في هذه المرحلة عنصر إرباك لا عنصر جمال، ووجوده يُفسد قراءة الشكل.</dd>
+        <dt>حركة الكاميرا</dt><dd>ثابتة تماماً في معظم اللقطات. وإن تحركت فبانتقال أفقي واحد بطيء لا يتجاوز الثانيتين، بلا تقريب مفاجئ ولا قطع سريع.</dd>
+        <dt>إيقاع المشهد</dt><dd>تكرار محسوب على ثلاث خطوات: ظهور، ثم توقّف، ثم مكافأة بصرية. متوسط اللقطة يتجاوز أربع ثوانٍ ليمنح الطفل زمناً كافياً للتوقّع قبل الاستجابة.</dd>
+      </dl>
+    </div>
+
+    <h4>٣–٤ سنوات · عالم التصرف والاكتشاف</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم مرح صريح، شخصياته كبيرة الرؤوس واسعة العيون، وبيئاته خيالية بسيطة تُقرأ من النظرة الأولى: زهرة أكبر من البيت، وشكل يطفو في الهواء بلا تفسير ولا اعتذار. المبالغة هنا وسيلة تعبير مقصودة لا خللاً في النسب، لأن الطفل في هذه السن يفهم الحجم قبل أن يفهم السبب.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>ألوان زاهية مشبعة قريبة من ألوان الحلوى، على خلفيات لونية مسطحة تعزل الشخصية وتمنع ازدحام العين بالتفاصيل.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>ناعمة متساوية، مع ظل خفيف أسفل الشخصية يمنحها ثقلاً ومكاناً في الأرض، دون أن يصنع جواً درامياً لا يناسب السن.</dd>
+        <dt>حركة الكاميرا</dt><dd>مواكبة مرحة تتبع الشخصية في وثباتها، مع ارتداد بسيط عند لحظة الوقوف يمنح الحركة طرافة محسوسة.</dd>
+        <dt>إيقاع المشهد</dt><dd>سريع بلا تشويش، بمتوسط لقطة بين ثلاث وخمس ثوانٍ، وذروة حركية واحدة في كل مشهد تعقبها لحظة سكون تسمح للضحك بأن يقع.</dd>
+      </dl>
+    </div>
+
+    <h4>٥–٦ سنوات · عالم التعاون وبناء العلاقات</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم الجماعة: أربع شخصيات متمايزة في الشكل والطبع تتحرك داخل إطار واحد، ولكل منها موقع بصري ثابت في التكوين حتى يتعرّف الطفل على دورها قبل أن تنطق. المغامرة هنا إطار خارجي، أما الموضوع الحقيقي فهو العلاقة وما يجري فيها من أخذ وردّ.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>مدى دافئ حيوي يقوم على البرتقالي والفيروزي، بتدرجات متوسطة العمق تمنح البيئة غنى محسوساً دون أن تُثقلها.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>ضوء الساعة الذهبية في معظم المشاهد الخارجية، بظلال طويلة ناعمة تصنع دفئاً ينسجم مع موضوع الصداقة والألفة.</dd>
+        <dt>حركة الكاميرا</dt><dd>زوايا ديناميكية ومواكبة جانبية أثناء الركض، مع لقطة جماعية واسعة واحدة على الأقل في كل حلقة تُثبّت المجموعة في ذهن المشاهد ككيان واحد.</dd>
+        <dt>إيقاع المشهد</dt><dd>متدفق مرن: يتسارع في المغامرة ويهدأ عند لحظة التفاهم، فيتعلّم الطفل من الإيقاع نفسه الفرق بين زمن الفعل وزمن الحوار.</dd>
+      </dl>
+    </div>
+
+    <h4>٧–٨ سنوات · عالم فهم المحيط والآخر</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم واقعي مألوف: فناء مدرسة، وممر بيت، وطاولة صف. النسب تقترب من الواقع، والملامح تحمل تفصيلاً كافياً لقراءة الانفعال من الوجه وحده، لأن موضوع هذه المرحلة كلها هو ما يشعر به الطرف الآخر حين نتصرف دون أن نحسب أثر تصرفنا.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>مدى واقعي مكتوم بلمسات دافئة، بعيداً عن الإشباع الطفولي، بما يمنح المشهد مصداقية ويُبقي الانتباه مشدوداً إلى الوجوه لا إلى الخلفية.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>ضوء نهار طبيعي بظلال ناعمة محددة المصدر، يتبدّل بتبدّل موقع المشهد في اليوم فيبني إحساساً ضمنياً بمرور الزمن.</dd>
+        <dt>حركة الكاميرا</dt><dd>لقطات متوسطة مستقرة في مستوى نظر الطفل لا فوقه، مع مواكبة هادئة على حامل، وقطع متبادل بين وجهين يبني التوتر البصري في لحظة الخلاف.</dd>
+        <dt>إيقاع المشهد</dt><dd>متزن، يُفسح مجالاً للصمت بعد الموقف مباشرة. الصمت هنا هو زمن الإدراك، ولا يُملأ بالحوار ولا بالموسيقى.</dd>
+      </dl>
+    </div>
+
+    <h4>٩–١٠ سنوات · عالم التفكير قبل إطلاق الحكم</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم اللحظة المعلّقة: طفل يقف عند مفترق قرار، والكادر كله مبنيّ على ذلك التردد. مساحة فارغة مقصودة إلى جانبه تُشعر المشاهد بأن ثمة خياراً لم يُتَّخذ بعد، وأن ما سيأتي ليس محسوماً.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>مدى مضبوط من الأزرق العميق والعنبري الدافئ، بتقابل بين بارد وحار يعكس الصراع الداخلي دون أن ينطق به أحد.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>جانبية درامية بظلال عميقة تُبرز نصف الوجه وتترك نصفه الآخر في العتمة، مع مصادر ضوء واقعية حاضرة داخل الكادر لا خارجه.</dd>
+        <dt>حركة الكاميرا</dt><dd>تقريب بطيء جداً على الوجه في لحظة التردد، وعمق ميدان ضحل يعزل الشخصية عن محيطها ويضع القرار وحده في بؤرة الحدة.</dd>
+        <dt>إيقاع المشهد</dt><dd>بطيء مقصود قبل القرار، حاد سريع بعده. المونتاج نفسه يحمل الرسالة: التمهّل قبل الحكم هو ما يصنع الفارق.</dd>
+      </dl>
+    </div>
+
+    <h4>١١–١٣ سنة · عالم اختيار الهوية وبناء الذات</h4>
+    <div class="dir-card">
+      <p class="dir-lead">عالم سينمائي بالغ النضج بصرياً: حي عربي معاصر عند المغيب، وملابس حقيقية لا أزياء، وأماكن تشبه ما يعرفه المراهق لا ما يُراد له أن يحلم به. الصدق البصري هنا شرط بقاء لا خيار ذوق، لأن هذه الفئة تكتشف التصنّع من اللقطة الأولى ثم تنصرف بلا رجعة.</p>
+      <dl class="dir-spec">
+        <dt>لوحة الألوان</dt><dd>تباين منخفض ودرجات مركّبة مخفّضة الإشباع، مع لمسة لون واحدة تُبرز الشخصية من محيطها دون أن تُجمّل الواقع أو تُزيّفه.</dd>
+        <dt>طبيعة الإضاءة</dt><dd>مصادر عملية من داخل المشهد — لافتة محل، وضوء هاتف، ومصباح شارع — بأقل قدر ممكن من الإضاءة الاصطناعية، لتقترب الصورة من لغة الوثائقي.</dd>
+        <dt>حركة الكاميرا</dt><dd>حركة محمولة متحفّظة قرب كتف الشخصية، وعدسات ذات عمق ميدان ضحل، مع لقطات مقرّبة على التفاصيل الصغيرة: إصبع يتردد، وشاشة تنطفئ.</dd>
+        <dt>إيقاع المشهد</dt><dd>طويل النفس نسبياً، يثق بقدرة المشاهد على التقاط المعنى من الصورة وحدها، ويتجنب الشرح والتعليق الصوتي المباشر.</dd>
+      </dl>
+    </div>
+
+    <h3>الشخصيات المحورية بوصفها أصولاً قابلة للترخيص</h3>
+    <p>تُصمَّم هذه الشخصيات منذ اللوحة الأولى لتكون منتجاً لا رسماً: تُقاس أبعادها، وتُحدَّد خاماتها، ويُختبر ظلّها الخارجي قبل اعتمادها. وهذا ما يحوّلها لاحقاً من كلفة إنتاج إلى مصدر إيراد مستقل.</p>
+
+    <h4>كرز · الدمية المرافقة والشخصية الأم للعلامة</h4>
+    <div class="dir-card is-character">
+      <p class="dir-lead">كرز ليست شخصية في برنامج، بل وجه العلامة وأكثر أصولها قابلية للتحول إلى منتج. صُمّمت لتُحمَل وتُعانَق وتُباع، لا لتُرسم وحسب. حضورها الدافئ هو ما يجعل الطفل يتعرّف على المنصة قبل أن يقرأ اسمها.</p>
+      <dl class="dir-spec">
+        <dt>الخامات</dt><dd>قماش قطيفة كرزي غني ظاهر الألياف تحت الضوء، وعينان من راتنج لامع بقرنية بارزة تمنحان لمعة الحياة، وحشوة لينة متجانسة تسمح بالضغط والعودة إلى الشكل.</dd>
+        <dt>الملامح التعبيرية</dt><dd>وجه محايد قابل للقراءة بأكثر من معنى، مع رفع خفيف في زاويتي الفم يجعل التعبير الافتراضي ودوداً. الانفعال يُصنع بحركة الرأس واليد لا بتبديل الوجه.</dd>
+        <dt>الأبعاد والهندسة</dt><dd>بنية كروية بسيطة، رأس يمثل نحو ثلث الطول الكلي، وذراعان قصيرتان، وطول إجمالي بين ثمانية وعشرين واثنين وثلاثين سنتيمتراً — مقاس محسوب ليُحمل بيد طفل ويُنتج بكلفة معقولة.</dd>
+        <dt>جاهزية الترخيص</dt><dd>تُقرأ من ظلّها الخارجي وحده بلا تفاصيل دقيقة يصعب نقلها إلى الطباعة والدمى والقرطاسية، وتُعتمد لها ثلاث زوايا ثابتة في ورقة التصميم: أمامية وجانبية وثلاثة أرباع.</dd>
+      </dl>
+    </div>
+
+    <h4>معلوم ومفهوم · ثنائي الاستقصاء العلمي</h4>
+    <div class="dir-card is-character">
+      <p class="dir-lead">ثنائي مبني على تناقض بصري صريح يخدم تناقض الدور: واحد يسأل وآخر يشرح. المعيار المعتمد أن يميّز الطفل أيّهما يتكلم من الظل الخارجي وحده، قبل أن يسمع الصوت أو يرى الوجه.</p>
+      <dl class="dir-spec">
+        <dt>الخامات</dt><dd>بنية دمى من اللباد والإسفنج المنحوت، بخياطة ظاهرة مقصودة تُبقي أثر الصنعة اليدوية حاضراً، وشعر من خيوط صوفية، وأيدٍ قابلة للتحريك من الداخل.</dd>
+        <dt>الملامح التعبيرية</dt><dd>معلوم طويل نحيل بدرجات باردة وحاجب مرفوع دائم يوحي بالسؤال المعلّق؛ ومفهوم قصير ممتلئ بدرجات دافئة وعينان واسعتان مستعدتان للدهشة. الفارق بينهما هو أداة الكوميديا الأولى.</dd>
+        <dt>الأبعاد والهندسة</dt><dd>فارق في الطول لا يقل عن الثلث ليُقرأ في اللقطة الواسعة، ورأسان بحجم يسمح بالتعبير في اللقطة المتوسطة دون فقدان التفصيل على الشاشات الصغيرة.</dd>
+        <dt>جاهزية الترخيص</dt><dd>ثنائي يُباع معاً لا منفرداً، وهو ما يضاعف قيمة المنتج الواحد ويفتح امتدادات طبيعية: مجسّمان متلازمان، وكتاب أنشطة علمية، وحقيبة تجارب مدرسية.</dd>
+      </dl>
+    </div>
+
+    <h4>سعدون · بطل الصمت الكوميدي</h4>
+    <div class="dir-card is-character">
+      <p class="dir-lead">شخصية لا تنطق حرفاً، فيقع العبء كله على التصميم. والمعيار هنا صارم بلا مجاملة: إن لم يُفهم الانفعال من إطار ثابت واحد، بلا صوت ولا ترجمة ولا سياق، فالتصميم لم يبلغ غايته بعد.</p>
+      <dl class="dir-spec">
+        <dt>الخامات</dt><dd>أسلوب رسم كلاسيكي بأطراف مرنة، وخط خارجي سميك ثابت السماكة، وألوان مسطحة بلا تدرج — بما يُبقي الكلفة منخفضة والإنتاجية عالية في برنامج كثيف الحلقات.</dd>
+        <dt>الملامح التعبيرية</dt><dd>عينان واسعتان تحملان معظم الانفعال، وحاجبان مستقلان في الحركة، وجسد مطواع يبالغ في الوضعية حتى يصير الشعور مقروءاً من مسافة بعيدة أو على شاشة صغيرة.</dd>
+        <dt>الأبعاد والهندسة</dt><dd>خط خارجي مميز يُعرف من ظله وحده: رأس مستدير، وقامة قصيرة، وقطعة ملبس واحدة فارقة تُختزل إليها الشخصية في أي منتج مشتق.</dd>
+        <dt>جاهزية الترخيص</dt><dd>بساطة الخطوط تجعله الأصل الأنسب للطباعة على الملابس والقرطاسية والملصقات الرقمية، وهي القناة الأسرع عائداً والأقل كلفة في التنفيذ.</dd>
+      </dl>
+    </div>
+
+    <h3>بيئات البرامج وروحها المعمارية</h3>
+
+    <h4>حي الرمان · الحي الدرامي الاجتماعي</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">حارة عربية ضيقة تتنفس حياة يومية: بيوت حجرية قديمة بنوافذ خشبية ملوّنة، وشجرة رمان تتوسط الساحة فتصير علامة المكان وبوصلة المشاهد في كل حلقة. حبال الغسيل تعبر الفراغ بين الشرفات فتصنع سقفاً بصرياً يوحّد الكادر، ويملأ الأطفالُ المقدمةَ بينما تبقى النوافذ المفتوحة في العمق شاهدة على أن أحداً يرى دائماً — وتلك هي فكرة الحي كله مختزلة في تكوين واحد. الروح المعمارية متوسطية دافئة بلا زخرفة سياحية: جدران مسّها الزمن، وأبواب تحمل آثار طلاء قديم، وتفاصيل معيشية صغيرة تثبت أن المكان مسكون لا مصنوع. تُصوَّر البيئة في ضوء العصر المائل بظلال طويلة تمنح الحارة حميميتها، وتُبنى الخلفيات على ثلاث طبقات عمق تسمح بحركة كاميرا عرضية تكشف المكان تدريجياً بدل أن تعرضه دفعة واحدة.</p>
+    </div>
+
+    <h4>جدتي والمهن · بيت الجدة والأغراض العتيقة</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">داخلٌ مكتظ بالذاكرة: مذياع خشبي قديم، ودلّة نحاسية، وماكينة خياطة بقدم حديدي، وأوانٍ نحاسية معلّقة تلمع كلما مرّ عليها الضوء. المكان أرشيف حيّ للمهن التي يوشك الطفل أن ينساها، وكل غرض فيه ذريعة حكاية تنتظر من يفتحها. الروح المعمارية بيت عربي قديم بسقف مرتفع وشيش خشبي، تتسلل منه أشعة ضيقة يتراقص فيها الغبار فتصنع عمقاً بصرياً بلا كلفة إنتاج تُذكر. اللوحة اللونية عنبرية دافئة تقوم على الخشب والنحاس والقماش المنقوش، والإضاءة من مصباح واحد ونافذة واحدة لا أكثر، بما يجعل البيت مسرحاً مغلقاً حميماً تدخل إليه المهنة من الباب فتفتح عليه العالم كله.</p>
+    </div>
+
+    <h4>قصة صحن · اللوحة من الطعام</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">طاولة خشبية دافئة وصحن أبيض نظيف بوصفه لوحة فارغة تنتظر أول لمسة. الكاميرا عمودية من أعلى تماماً، فتتحول مكونات الطبق إلى عناصر تكوين: حبات ملوّنة تصير بحراً، وورقة خضراء تصير شراعاً. المطبخ حاضر في الخلفية بضوئه الطبيعي وغير مقروء التفاصيل، حتى يبقى الصحن وحده بؤرة الانتباه. الروح العامة بيتية لا مطعمية: أدوات مستعملة، وأيدٍ تظهر في الكادر وهي تُرتّب، وعفوية محسوبة تُشعر الطفل أن ما يراه ممكن في مطبخ أمه لا في استوديو محترف. ويُبنى المشهد كله على انتقال واحد: صحن عادي يتحول أمام العين إلى صورة، ثم تُرسم فوقه الحكاية رقمياً فتكتمل المعادلة بين الملموس والمتخيَّل.</p>
+    </div>
+
+    <h4>ورشة الخطأ · مختبر التجربة الفاشلة</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">ورشة أطفال حقيقية لا مختبر معقّم: طاولة عمل خشبية عليها أنابيب كرتونية وتروس ومطاط وأسلاك، ورسوم تخطيطية مثبّتة على الجدار بخط طفل لا بخط مصمم. وفي قلب الكادر تركيب نصف مكتمل يوشك أن ينهار — وهذه بالضبط هي الصورة التي يقوم عليها البرنامج كله. الروح المعمارية ورشة منزلية مضاءة بضوء عملي ساطع من مصابيح معلّقة، بخامات خشب ومعدن ولون صناعي هادئ، وليس فيها ما يوحي بالكمال أو النظام التام. والأداء البصري المطلوب أن تُقرأ على وجوه الأطفال حماسةٌ لا خيبة لحظة الفشل؛ لذلك تلتقط الكاميرا ردّ الفعل قبل أن تلتقط الانهيار نفسه، لتقول بلا كلام إن الخطأ خطوة في الطريق لا نهايته.</p>
+    </div>
+
+    <h4>صديقي الذكي · رفيق الذكاء الاصطناعي</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">فضاء معاصر نظيف بخطوط بسيطة، يرافق فيه الطفلَ كيانٌ هندسي متوهج لا ملامح بشرية له: شكل ناعم يطفو، ووجه من ضوء يتغير انحناؤه فيتغير التعبير. والقرار الإخراجي هنا حاسم: ألا يبدو الرفيق إنساناً ولا آلة مخيفة، بل أداة صديقة واضحة الحدود، حتى لا يختلط على الطفل الفرق بين البشر والبرمجيات. اللوحة اللونية سماوية باردة مع أبيض ناعم، ولمسة دافئة واحدة تأتي دائماً من جهة الطفل لا من جهة الآلة، تأكيداً بصرياً متكرراً على أن الإنسان هو مصدر الدفء. المكان مضاء بتوهج محيطي هادئ، وتُستخدم أنماط بيانية خفيفة في الخلفية لتفسير ما يجري داخل الخوارزمية عند الحاجة، بلا مبالغة تقنية تُبعد الطفل عن الفكرة بدل أن تقرّبها.</p>
+    </div>
+
+    <h4>زر واحد · القرار الرقمي</h4>
+    <div class="dir-card is-world">
+      <p class="dir-lead">غرفة مظلمة وشاشة واحدة مضاءة، ووجه مراهق خارج البؤرة بينما يبقى الإصبع المتردد فوق الزر في قلب الحدة. الضوء الوحيد في الكادر يأتي من الشاشة نفسها فيصبغ البشرة بزرقة باردة — وهي الصورة المركزية التي تلخّص البرنامج كله: لحظة واحدة، وقرار واحد، وأثر يمتد أسبوعاً. الروح المعمارية غرفة مراهق معاصرة صادقة بتفاصيلها المبعثرة، بلا علامات تجارية ولا نصوص مقروءة على الشاشات. وعمق الميدان ضحل جداً لعزل القرار عن محيطه، والإيقاع صامت متوتر قبل الضغطة ثم يتسع فجأة إلى فضاءات نهارية مفتوحة بعدها، فيُحسّ المشاهد باتساع الأثر قبل أن يُشرح له بكلمة واحدة.</p>
+    </div>
+
+    <h3>ضوابط الاتجاه الفني</h3>
+    <ul>
+      <li><strong>لا علامات تجارية ولا شخصيات محمية</strong> — أي مرجع بصري يحاكي شخصية معروفة يُرفض في بوابة المراجعة البصرية، حمايةً للملكية الفكرية للمشروع نفسه قبل حماية غيره.</li>
+      <li><strong>لا نصوص داخل الصورة المرجعية</strong> — تُضاف الكتابة العربية لاحقاً في مرحلة التصميم بخطوط دليل الهوية، ضماناً لسلامة الحرف واتصاله وتشكيله.</li>
+      <li><strong>تنوع الملامح مطلوب صراحةً</strong> — يُنَص عليه في كل لوحة تضم مجموعة أطفال، بوصفه التزاماً تحريرياً لا خياراً جمالياً.</li>
+      <li><strong>المرجع اتجاه لا منتج نهائي</strong> — لا تدخل أي لوحة مرجعية أو صورة أولية إلى الحلقات أو المواد المنشورة؛ وظيفتها تثبيت الاتجاه وتوحيد الفهم داخل الفريق وحسب.</li>
+    </ul>
+
+    <div class="pager"><button data-go="s6">السابق: محفظة البرامج</button><button data-go="s8">التالي: الكفاءات البشرية</button></div>
+  </section>
+
+  <!-- ========== 8 · TEAM ========== -->
+  <section class="sec" id="s8">
+    <div class="sec-head"><p class="sec-num">القسم الثامن</p><h2>الكفاءات البشرية وفريق العمل</h2></div>
+
+    <p class="sec-lead">المعدات تُشترى والبرمجيات تُرخَّص والاستوديو يُستأجر. ما لا يُشترى جاهزاً هو فريق سبق له أن أنتج محتوى أطفال ونجح فيه.</p>
+
+    <p>هذه ليست صناعة يتعلمها المرء أثناء العمل. كاتب لم يكتب للطفل من قبل يحتاج موسمين ليضبط الإيقاع. محرّك لم يعمل على شخصية طفولية يُنتج حركة لا تُقنع. والثمن يُدفع من الميزانية ومن الوقت ومن سمعة الإطلاق الأول. قوتنا التشغيلية أن هذا الفريق موجود ومختبَر، لا أن نبحث عنه بعد اعتماد التمويل.</p>
+
+    <h3>بنية الفريق</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>الوحدة</th><th>الأدوار</th><th>المسؤولية</th><th>أثرها على المخاطر</th></tr></thead>
+        <tbody>
+          <tr><th>الإدارة الإبداعية</th><td>مدير المحتوى، منتج منفّذ</td><td>اعتماد المحفظة والجدول والميزانية</td><td>ضبط النطاق ومنع تضخم الكلفة</td></tr>
+          <tr><th>وحدة الأبحاث النفسية والتربوية</th><td>باحث نفسي، مستشار تربوي، مختص حماية الطفل</td><td>بوابات المراجعة الثلاث</td><td>منع الخطأ المحتوائي قبل إنفاق الإنتاج</td></tr>
+          <tr><th>غرفة الكتابة</th><td>كتّاب قصة، كتّاب سيناريو، محرر أدبي</td><td>المعالجات والنصوص</td><td>جودة النص هي أرخص نقطة تحكم في الجودة كلها</td></tr>
+          <tr><th>الإخراج</th><td>مخرجون، مخرجو أنيميشن</td><td>الرؤية البصرية والإيقاع</td><td>تقليل إعادة الإنتاج</td></tr>
+          <tr><th>الفن والتصميم</th><td>مدير فني، مصممو شخصيات وخلفيات، سينوغراف</td><td>دليل الهوية والأصول البصرية</td><td>اتساق العلامة عبر ثمانية عشر برنامجاً</td></tr>
+          <tr><th>التحريك</th><td>محرّكو 2D و3D، ريغرز، فنانو مؤثرات</td><td>تنفيذ الحركة</td><td>أثقل بند كلفة — الانضباط فيه يحدد الميزانية</td></tr>
+          <tr><th>الصوت والموسيقى</th><td>ملحنون، مهندسو صوت، مخرج أداء صوتي، مؤدون</td><td>الطبقة الصوتية والأغاني</td><td>الأغاني أصول قابلة للترخيص بذاتها</td></tr>
+          <tr><th>الدمى والتصوير الحي</th><td>صانعو دمى، محرّكو دمى، مدير تصوير</td><td>الإنتاج الميداني</td><td>قالب منخفض الكلفة نسبياً مقابل الأنيميشن</td></tr>
+          <tr><th>ما بعد الإنتاج</th><td>مونتير، كولوريست، مهندس مكساج</td><td>التشطيب النهائي</td><td>ضمان التسليم بالمواصفة المعتمدة</td></tr>
+          <tr><th>وحدة الاختبار</th><td>باحث ميداني، منسق مجموعات</td><td>اختبار عينة الأطفال</td><td>إنذار مبكر قبل إطلاق الموسم</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>كيف تُترجم الخبرة إلى أرقام</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>مصدر الميزة</th><th>الأثر المباشر</th></tr></thead>
+        <tbody>
+          <tr><th>فريق سبق له إنتاج محتوى أطفال</th><td>تقليص منحنى التعلم من موسمين إلى صفر</td></tr>
+          <tr><th>المراجعة النفسية داخل الفريق لا خارجه</th><td>حذف دورة الاستشارة الخارجية من الجدول الزمني</td></tr>
+          <tr><th>دليل هوية واحد لستة عوالم</th><td>إعادة استخدام الأصول البصرية والصوتية عبر البرامج</td></tr>
+          <tr><th>علاقات جاهزة مع مؤدين وملحنين</th><td>خفض كلفة التعاقد وزمن التفاوض</td></tr>
+          <tr><th>خبرة بالبوابات الرقابية والتوزيع الإقليمي</th><td>تجنّب رفض أو تعديل المحتوى بعد إتمامه</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>المحصلة: سرعة النفاذ إلى السوق.</strong> المنصة تستطيع إطلاق موجتها الأولى خلال ستة أشهر من الاعتماد، بينما يحتاج فريق يُبنى من الصفر إلى اثني عشر شهراً على الأقل ليبلغ الجودة نفسها — وهذه ستة أشهر من الإيراد المؤجل ومن الأفضلية التنافسية المفقودة.</p>
+    </div>
+
+    <h3>إدارة مخاطر رأس المال البشري</h3>
+    <ul>
+      <li><strong>توثيق المعرفة</strong> — أدلة الهوية وبطاقات المعايير تجعل المنهجية مملوكة للمؤسسة لا محفوظة في رؤوس أفراد.</li>
+      <li><strong>ازدواجية الأدوار الحرجة</strong> — لكل دور حرج بديل مدرَّب، تفادياً لتوقف خط الإنتاج.</li>
+      <li><strong>مزيج تعاقدي مرن</strong> — نواة ثابتة بعقود طويلة، وطاقة إضافية بعقود مشروع تتمدد وتنكمش مع حجم الموسم.</li>
+      <li><strong>ربط الحوافز بالأصل</strong> — حصص من عائد الترخيص لصنّاع الشخصيات الأساسية، بما يثبّت المواهب المحورية.</li>
+    </ul>
+
+    <div class="pager"><button data-go="s7">السابق: دليل الاتجاه الفني</button><button data-go="s9">التالي: مخطط العرض</button></div>
+  </section>
+
+  <!-- ========== 9 · DECK OUTLINE ========== -->
+  <section class="sec" id="s9">
+    <div class="sec-head"><p class="sec-num">القسم التاسع</p><h2>مخطط العرض التقديمي أمام المجلس</h2></div>
+
+    <p class="sec-lead">اثنتا عشرة شريحة، مدة عرض مقترحة من ٢٠ إلى ٢٥ دقيقة، يليها ١٥ دقيقة للنقاش. لكل شريحة رسالتها المركزية ونقاط عرضها البصرية.</p>
+
+    <div class="slide"><div class="slide-n">١</div><div class="slide-body">
+      <h4>الفجوة</h4>
+      <p class="slide-key">سوق كبير يُخدَم بمحتوى مستورد أو ضعيف الصنعة.</p>
+      <ul><li>الطفل العربي يشاهد اليوم محتوى مدبلجاً في غالبه</li><li>البديل المحلي: إما جودة بلا قيمة أو قيمة بلا جودة</li><li>لا أحد يجمع الاثنين بمنهجية مؤسسية</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٢</div><div class="slide-body">
+      <h4>الطرح</h4>
+      <p class="slide-key">منصة تجمع الإبهار البصري العالمي بالبناء القيمي، بمنهجية موثقة.</p>
+      <ul><li>إنتاج أصلي مملوك بالكامل، لا اقتناء ولا دبلجة</li><li>ست فئات عمرية بست هويات بصرية</li><li>كل حلقة تخضع لبطاقة معايير نفسية موقّعة</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٣</div><div class="slide-body">
+      <h4>لماذا نحن</h4>
+      <p class="slide-key">الفريق موجود ومختبَر، والمنهجية جاهزة، والتنفيذ يبدأ فور الاعتماد.</p>
+      <ul><li>فريق سبق له إنتاج محتوى أطفال — بلا منحنى تعلم</li><li>وحدة أبحاث نفسية وتربوية داخلية</li><li>ستة أشهر إلى الإطلاق مقابل اثني عشر لفريق يُبنى من الصفر</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٤</div><div class="slide-body">
+      <h4>ست فئات، ست هويات</h4>
+      <p class="slide-key">التجزئة العمرية تُطيل دورة حياة المشترك من أربع سنوات إلى اثنتي عشرة.</p>
+      <ul><li>الجدول المقارن للفئات الست</li><li>كل فئة بوابة بصرية مستقلة داخل التطبيق</li><li>ترقية تلقائية مع نمو الطفل</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٥</div><div class="slide-body">
+      <h4>الشخصيات كأصول فكرية</h4>
+      <p class="slide-key">لا نبيع حلقات، بل نبني أصولاً تنمو قيمتها مع الوقت.</p>
+      <ul><li>كرز ومعلوم ومفهوم وسعدون: مسار من الشاشة إلى المنتَج</li><li>خمس مراحل من الترسيخ إلى التفاعل الرقمي</li><li>دليل هوية لكل شخصية يحمي الأصل عند التوسع</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٦</div><div class="slide-body">
+      <h4>محرك الجودة</h4>
+      <p class="slide-key">خط إنتاج من اثنتي عشرة محطة يجعل الجودة نظاماً لا صدفة.</p>
+      <ul><li>مخطط المسار من الفكرة إلى البث</li><li>ثلاث بوابات مراجعة إلزامية: نفسية وتربوية وحماية طفل</li><li>اختبار على عينة أطفال قبل الاعتماد النهائي</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٧</div><div class="slide-body">
+      <h4>بطاقة المعايير</h4>
+      <p class="slide-key">المحتوى خاضع لمقاييس مؤسسية لا لانطباع فردي.</p>
+      <ul><li>نموذج البطاقة كاملاً على الشاشة</li><li>ثلاثة توقيعات إلزامية قبل مرحلة الرسم</li><li>الأرشيف يتحول إلى قاعدة بيانات تربوية مفهرسة قابلة للبيع المؤسسي</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٨</div><div class="slide-body">
+      <h4>المحفظة البرامجية</h4>
+      <p class="slide-key">ثمانية عشر برنامجاً، وأكثر من ٥٠٠ حلقة ونحو ٦٨ ساعة محتوى أصلي تقديرياً في المرحلة الأولى.</p>
+      <ul><li>ثلاثة عشر برنامجاً من الحزمة القائمة وخمسة مقترحة حديثاً</li><li>توزيع محسوب بين الواجهة والعمود الفقري والتغذية والتجريب</li><li>تغطية كاملة للفئات الست</li><li>أرقام الحلقات تقديرية تُحسم بدراسة الجدوى المالية</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">٩</div><div class="slide-body">
+      <h4>الهوية البصرية</h4>
+      <p class="slide-key">الجودة البصرية شرط وصول لا بند تجميل.</p>
+      <ul><li>لوحات مزاج للعوالم الست</li><li>تصاميم الشخصيات المحورية</li><li>مقارنة بصرية مع المستوى السائد في السوق</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">١٠</div><div class="slide-body">
+      <h4>شراكة الأسرة</h4>
+      <p class="slide-key">الأهل هم من يدفع ومن يمنح الثقة — والتصميم موجَّه لهم.</p>
+      <ul><li>بطاقة تسعين ثانية مع كل حلقة: سؤال ونصيحة ونشاط</li><li>لا إعلانات طرف ثالث دون سن الثامنة ولا بيانات سلوكية للتسويق</li><li>أثر مباشر على الاحتفاظ ومعدل الإلغاء</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">١١</div><div class="slide-body">
+      <h4>خارطة التنفيذ</h4>
+      <p class="slide-key">ثلاث موجات على ثمانية عشر شهراً، لا إطلاق واحد مرتفع المخاطر.</p>
+      <ul><li>الموجة الأولى من الشهر الأول إلى السادس: كثافة حلقات بكلفة معتدلة</li><li>الموجة الثانية من السادس إلى الثاني عشر: برامج الواجهة</li><li>الموجة الثالثة من الثاني عشر إلى الثامن عشر: الفئات الأكبر عمراً</li></ul>
+    </div></div>
+
+    <div class="slide"><div class="slide-n">١٢</div><div class="slide-body">
+      <h4>القرار المطلوب</h4>
+      <p class="slide-key">اعتماد المرحلة الأولى والبدء خلال الربع القادم.</p>
+      <ul><li>اعتماد ميزانية الموجة الأولى</li><li>تأسيس وحدة الحوكمة الإنتاجية</li><li>تسجيل الشخصيات كأصول فكرية مملوكة</li></ul>
+    </div></div>
+
+    <h3>ملاحظات على ترتيب العرض</h3>
+    <ul>
+      <li>الترتيب مقصود: الفجوة قبل الحل، والحل قبل الطلب. لا تُعرض الأرقام قبل الشريحة الرابعة.</li>
+      <li>الشريحة السابعة هي نقطة التحول: اقتناع المجلس بأن المحتوى مُحوكَم وقابل للقياس يتجاوز أصعب اعتراض متوقع.</li>
+      <li>الشريحة التاسعة تعتمد على البصريات لا على النص.</li>
+      <li>تُجهَّز مسبقاً إجابات أربعة أسئلة: كلفة الساعة المنتجة، آلية حماية الملكية الفكرية، خطة التوزيع، وسيناريو عدم بلوغ الموجة الأولى مستهدفها.</li>
+    </ul>
+
+    <div class="pager"><button data-go="s8">السابق: الكفاءات البشرية</button><button data-go="s10">التالي: القرار المطلوب</button></div>
+  </section>
+
+  <!-- ========== 10 · DECISION ========== -->
+  <section class="sec" id="s10">
+    <div class="sec-head"><p class="sec-num">القسم العاشر</p><h2>الخطوات التنفيذية وطلب القرار</h2></div>
+
+    <p class="sec-lead">المنهجية مكتوبة، والمحفظة مفروزة، والفريق قادر على البدء. ما يفصلنا عن الإنتاج قرار اعتماد، وما يفصلنا عن السوق ستة أشهر من العمل المنضبط.</p>
+
+    <h3>ما يُطلب من المجلس اعتماده</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>البند</th><th>المطلوب</th><th>الأثر إن تأخر</th></tr></thead>
+        <tbody>
+          <tr><th>ميزانية الموجة الأولى</th><td>اعتماد تمويل خمسة برامج بنحو ١٧٥ حلقة</td><td>تأجيل الإطلاق ربعاً كاملاً</td></tr>
+          <tr><th>وحدة الحوكمة الإنتاجية</th><td>تثبيت وحدة الأبحاث النفسية والتربوية بعقود ثابتة</td><td>فقدان الميزة المنهجية أمام المنافسين</td></tr>
+          <tr><th>تسجيل الأصول الفكرية</th><td>تسجيل الشخصيات والعلامات قبل أي ظهور عام</td><td>مخاطرة بفقدان حق الملكية على الأصل الأهم</td></tr>
+          <tr><th>اعتماد دليل الهوية</th><td>إقرار الهويات البصرية الست كمرجع ملزم</td><td>تشتت بصري يصعب إصلاحه لاحقاً</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>المئة يوم الأولى بعد الاعتماد</h3>
+    <div class="acc" data-acc>
+      <div class="acc-item"><button class="acc-head"><span class="step">١</span><span class="ttl">الأسابيع ١ إلى ٣ · التأسيس</span><span class="chev">▾</span></button><div class="acc-body"><p>تثبيت الفريق النواة، إقرار دليل الهوية البصرية، تسجيل العلامات والشخصيات كأصول فكرية مملوكة قبل أي ظهور عام.</p></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٢</span><span class="ttl">الأسابيع ٤ إلى ٧ · الكتابة والمراجعة</span><span class="chev">▾</span></button><div class="acc-body"><p>غرفة الكتابة تُنتج معالجات الموجة الأولى، وتُشغَّل بوابتا المراجعة النفسية والتربوية على النصوص الأولى لاختبار الإجراء عملياً.</p></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٣</span><span class="ttl">الأسابيع ٨ إلى ١١ · الحلقتان التجريبيتان</span><span class="chev">▾</span></button><div class="acc-body"><p>إنتاج حلقتين تجريبيتين من برنامجين مختلفي القالب الفني، لاختبار خط الإنتاج تحت ضغط حقيقي بكلفة محدودة.</p></div></div>
+      <div class="acc-item"><button class="acc-head"><span class="step">٤</span><span class="ttl">الأسابيع ١٢ إلى ١٤ · الاختبار والعرض</span><span class="chev">▾</span></button><div class="acc-body"><p>اختبار الحلقتين على عينات أطفال، ثم عرض النتائج على المجلس مع التعديلات المقترحة. هذه المحطة تمنح المجلس دليلاً ملموساً قبل الالتزام بكامل الموسم.</p></div></div>
+    </div>
+
+    <h3>مؤشرات الأداء التي نُحاسَب عليها</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>المؤشر</th><th>ما يقيسه</th></tr></thead>
+        <tbody>
+          <tr><th>متوسط مدة المشاهدة لكل حلقة</th><td>جودة الجذب البصري والإيقاع</td></tr>
+          <tr><th>نسبة إكمال الحلقة</th><td>سلامة البناء السردي</td></tr>
+          <tr><th>معدل الاحتفاظ الشهري بالمشتركين</th><td>القيمة المدركة لدى الأهل</td></tr>
+          <tr><th>نسبة استخدام بطاقات الأهل</th><td>عمق الشراكة الأسرية</td></tr>
+          <tr><th>اجتياز اختبار عينة الأطفال من المرة الأولى</th><td>كفاءة خط الإنتاج</td></tr>
+          <tr><th>كلفة الدقيقة المنتجة لكل قالب فني</th><td>انضباط الميزانية</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>البنود المفتوحة لقرار المجلس</h3>
+    <p>ثلاثة بنود ذات أثر مباشر على الميزانية والجدول، يُقترح حسمها في الجلسة نفسها أو تكليف لجنة بها خلال أسبوعين:</p>
+    <ol>
+      <li><strong>نموذج الإيراد</strong> — اشتراك أسري، أم مجاني مدعوم بشراكات مؤسسية، أم مزيج بمستويين.</li>
+      <li><strong>استراتيجية التوزيع</strong> — تطبيق مستقل فقط، أم حضور موازٍ على المنصات المفتوحة كقناة استقطاب.</li>
+      <li><strong>نطاق السوق في السنة الأولى</strong> — التركيز على سوق واحد لإثبات النموذج، أم إطلاق إقليمي واسع.</li>
+    </ol>
+
+    <p class="signoff">إدارة المشروع / فريق التطوير الاستراتيجي — وثيقة داخلية معدّة للعرض على مجلس الإدارة والمستثمرين الاستراتيجيين.</p>
+
+    <div class="pager"><button data-go="s9">السابق: مخطط العرض</button><button data-go="s0">العودة إلى الغلاف</button></div>
+  </section>
+
+  </div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* احتفظ بنسخة أصلية من الملف لإتاحة الحفظ لاحقاً */
+  var ORIGINAL_HTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2200);
+  }
+
+  /* ---------- التنقل بين الأقسام وأنماط العرض ---------- */
+  var navBtns  = Array.prototype.slice.call(document.querySelectorAll('.nav-btn'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var navList   = document.getElementById('navList');
+  var navFoot   = document.getElementById('navFoot');
+  var navToggle = document.getElementById('navToggle');
+  var app        = document.querySelector('.app');
+  var modeTabs   = document.getElementById('modeTabs');
+  var modeFull   = document.getElementById('modeFull');
+  var btnDetails = document.getElementById('btnDetails');
+
+  var SECTION_IDS = sections.map(function(s){ return s.id; });
+  var currentId   = SECTION_IDS[0];
+  var fullMode    = false;
+  var detailsOpen = false;
+  var activeFilter = 'all';
+
+  var reduceMotion = !!(window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  function closeMobileNav(){
+    if (window.innerWidth <= 900){
+      navList.classList.remove('is-open');
+      navFoot.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  }
+
+  function markCurrent(id){
+    currentId = id;
+    navBtns.forEach(function(b){
+      b.setAttribute('aria-current', b.dataset.target === id ? 'true' : 'false');
+    });
+  }
+
+  function show(id){
+    if (SECTION_IDS.indexOf(id) === -1) return;
+    markCurrent(id);
+    if (fullMode){
+      var el = document.getElementById(id);
+      var how = reduceMotion ? 'auto' : 'smooth';
+      if (id === SECTION_IDS[0]) window.scrollTo({ top:0, behavior:how });
+      else if (el) el.scrollIntoView({ block:'start', behavior:how });
+    } else {
+      sections.forEach(function(s){ s.classList.toggle('is-active', s.id === id); });
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    closeMobileNav();
+  }
+
+  /* ---------- فتح / طي جميع التفاصيل ---------- */
+  function syncDetailsButton(){
+    var heads = document.querySelectorAll('[data-acc] .acc-head');
+    var rows  = document.querySelectorAll('tr.pdetail');
+    var total = heads.length + rows.length;
+    var open  = 0;
+    heads.forEach(function(h){ if (h.getAttribute('aria-expanded') === 'true') open++; });
+    rows.forEach(function(r){ if (r.style.display !== 'none') open++; });
+    detailsOpen = total > 0 && open === total;
+    if (btnDetails){
+      btnDetails.textContent = detailsOpen ? 'طي جميع التفاصيل' : 'فتح جميع التفاصيل';
+      btnDetails.setAttribute('aria-pressed', detailsOpen ? 'true' : 'false');
+    }
+  }
+
+  function setAllDetails(open){
+    document.querySelectorAll('[data-acc] .acc-head').forEach(function(head){
+      var body = head.nextElementSibling;
+      if (!body) return;
+      body.classList.toggle('is-open', !!open);
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('tr.pdetail').forEach(function(tr){
+      tr.style.display = open ? 'table-row' : 'none';
+    });
+    syncDetailsButton();
+  }
+
+  /* ---------- التبديل بين وضع الأقسام ووضع المستند الكامل ---------- */
+  function setMode(full){
+    var keep = currentId;
+    fullMode = !!full;
+    app.classList.toggle('is-full', fullMode);
+    modeTabs.setAttribute('aria-pressed', fullMode ? 'false' : 'true');
+    modeFull.setAttribute('aria-pressed', fullMode ? 'true'  : 'false');
+
+    if (fullMode){
+      applyFilter('all');
+      setAllDetails(true);
+      markCurrent(keep);
+      if (keep === SECTION_IDS[0]) window.scrollTo(0,0);
+      else {
+        var el = document.getElementById(keep);
+        if (el) el.scrollIntoView({ block:'start', behavior:'auto' });
+      }
+      toast('وضع المستند الكامل — كل الأقسام والتفاصيل مفتوحة');
+    } else {
+      sections.forEach(function(s){ s.classList.toggle('is-active', s.id === keep); });
+      markCurrent(keep);
+      window.scrollTo(0,0);
+      toast('وضع العرض المقسّم بالأقسام');
+    }
+    closeMobileNav();
+  }
+
+  navBtns.forEach(function(b){
+    b.addEventListener('click', function(){ show(b.dataset.target); });
+  });
+
+  document.addEventListener('click', function(e){
+    var go = e.target.closest('[data-go]');
+    if (go) show(go.dataset.go);
+  });
+
+  navToggle.addEventListener('click', function(){
+    var open = navList.classList.toggle('is-open');
+    navFoot.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  modeTabs.addEventListener('click', function(){ if (fullMode) setMode(false); });
+  modeFull.addEventListener('click', function(){ if (!fullMode) setMode(true); });
+  btnDetails.addEventListener('click', function(){ setAllDetails(!detailsOpen); });
+
+  /* ---------- تتبّع القسم المعروض أثناء القراءة المتصلة ---------- */
+  var spyPending = false;
+  window.addEventListener('scroll', function(){
+    if (!fullMode || spyPending) return;
+    spyPending = true;
+    window.requestAnimationFrame(function(){
+      spyPending = false;
+      var best = SECTION_IDS[0];
+      for (var i = 0; i < sections.length; i++){
+        if (sections[i].getBoundingClientRect().top <= 120) best = sections[i].id;
+      }
+      if (best !== currentId) markCurrent(best);
+    });
+  }, false);
+
+  show(SECTION_IDS[0]);
+
+  /* ---------- البطاقات القابلة للطي ---------- */
+  document.querySelectorAll('[data-acc] .acc-head').forEach(function(head){
+    head.setAttribute('aria-expanded','false');
+    head.addEventListener('click', function(){
+      var body = head.nextElementSibling;
+      var open = body.classList.toggle('is-open');
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      syncDetailsButton();
+    });
+  });
+
+  /* ---------- بيانات البرامج ---------- */
+  var PROGRAMS = [
+    {n:'كليبات غنائية متنوعة', age:'١–٦', keys:['a1','a2','a3'], fmt:'أنيميشن 2D و3D مع دمى', ep:'٤٠', dur:'١٫٥–٣ د', tier:'volume', isNew:false,
+     goal:'ترسيخ المفردات والقيم عبر اللحن والتكرار، وبناء ذاكرة سمعية وحركية مبكرة. تستخدم شخصيات البرامج نفسها لتعزيز الترابط بالعلامة.'},
+    {n:'سعدون', age:'٣–٦', keys:['a2','a3'], fmt:'رسوم صامتة 2D أو 3D — كوميديا موقف', ep:'٣٠', dur:'٣–٤ د', tier:'volume', isNew:false,
+     goal:'تنمية الخيال وحل المشكلات بلا لغة منطوقة، عبر مواقف صامتة طريفة تُقرأ من الصورة وحدها. يخدم أيضاً الأطفال متعددي اللغات.'},
+    {n:'لو كنت مكانه', age:'٧–٨', keys:['a4'], fmt:'أنيميشن 3D', ep:'٢٦', dur:'١١ د', tier:'flagship', isNew:false,
+     goal:'تبنّي وجهة نظر الآخر. في كل حلقة يقع الطفل في تصرف غير مناسب ثم ينتقل إلى موقع الطرف الآخر ليكتشف أثر فعله ويصلحه بنفسه.'},
+    {n:'ابنتي', age:'٣–٤', keys:['a2'], fmt:'أنيميشن 2D دافئ', ep:'٢٦', dur:'٥–٦ د', tier:'core', isNew:false,
+     goal:'تجاوز الخوف من الجديد وبناء الأمان في العلاقة بالوالدين. فتاة صغيرة تلعب على طريقتها، ووالدتها توجهها دون أن تُصادر تجربتها.'},
+    {n:'حكاياتي', age:'٥–٦', keys:['a3'], fmt:'حكواتي Live-Action مع دمية ورسم ديجيتل مباشر', ep:'٢٤', dur:'٨–٩ د', tier:'core', isNew:false,
+     goal:'تنمية الخيال السردي ومهارة الاستماع، وتقديم التراث القصصي بأسلوب طريف يعتمد الرسم الحي كعنصر عرض.'},
+    {n:'مفهوم ومعلوم', age:'٧–١٠', keys:['a4','a5'], fmt:'دمى مع تصوير وغرافيكس تفسيري', ep:'٣٠', dur:'٩–١١ د', tier:'flagship', isNew:false,
+     goal:'بناء التفكير العلمي وعادة طرح السؤال قبل الجواب. يتحاور مفهوم ومعلوم حول موضوع علمي وتوضح الغرافيكس ما يتحدثان عنه.'},
+    {n:'مدرسة الحيوانات', age:'٣–٥', keys:['a2','a3'], fmt:'أنيميشن 2D سريع', ep:'٤٠', dur:'٣–٤ د', tier:'volume', isNew:false,
+     goal:'ترسيخ المفاهيم الأولى والعادات اليومية بإيقاع سريع وواضح في طرح المعالجة، بما يناسب مدى انتباه هذه الفئة.'},
+    {n:'العبقري الصغير', age:'٩–١٣', keys:['a5','a6'], fmt:'Live-Action وثائقي', ep:'٢٠', dur:'١٢–١٤ د', tier:'pilot', isNew:false,
+     goal:'بناء العقلية النامية: الموهبة نتيجة مثابرة لا هبة. لقاء مصور مع طفل موهوب ترافقه الكاميرا في خطوات تطوير موهبته لا في عرضها فقط.'},
+    {n:'فن الرسم مع كرز', age:'٥–٨', keys:['a3','a4'], fmt:'Live-Action مع الدمية كرز', ep:'٣٠', dur:'٧–٨ د', tier:'core', isNew:false,
+     goal:'تنمية المهارة الحركية الدقيقة والتعبير البصري، وتقبّل النتيجة غير المثالية. كرز تضفي جو المرح وتمنع تحول الحلقة إلى درس.'},
+    {n:'جدتي والمهن', age:'٥–٨', keys:['a3','a4'], fmt:'دمى وأنيميشن وأغنية درامية', ep:'٢٦', dur:'٨–٩ د', tier:'core', isNew:false,
+     goal:'احترام العمل اليدوي والتواصل بين الأجيال. أغراض بيت الجدة تتعطل فيأتي صاحب المهنة ويعرّف عن نفسه بأغنية بأسلوب درامي كوميدي.'},
+    {n:'مغامرة', age:'٥–٨', keys:['a3','a4'], fmt:'مختلط: Live-Action مع دمى محاورة', ep:'٢٤', dur:'١٠–١٢ د', tier:'core', isNew:false,
+     goal:'تنمية الفضول والاكتشاف وإدارة الرغبة والتخطيط للهدف. تتحقق أمنية الطفل فترافقه شخصية دمية تطرح الأسئلة وتواكبه في التفاصيل.'},
+    {n:'قصة صحن', age:'٣–٦', keys:['a2','a3'], fmt:'Live-Action مع دمية وغرافيك ارتجالي', ep:'٢٦', dur:'٦–٧ د', tier:'core', isNew:false,
+     goal:'تنمية الإبداع وبناء علاقة إيجابية بالطعام. تُبتكر لوحة من مكونات الطبق ثم تُرتجل لها حكاية تُنفَّذ غرافيكياً.'},
+    {n:'حي الرمان', age:'٧–١٠', keys:['a4','a5'], fmt:'دراما أنيميشن 3D أو Live-Action', ep:'٢٦', dur:'١٢–١٣ د', tier:'flagship', isNew:false,
+     goal:'معالجة الحياة الاجتماعية والجيرة وحل النزاعات في سياق درامي شيّق ممزوج بالطرافة، بعيداً عن أسلوب التلقين المباشر.'},
+    {n:'زر واحد', age:'١١–١٣', keys:['a6'], fmt:'Live-Action سينمائي قصير', ep:'٢٠', dur:'١٥–١٨ د', tier:'flagship', isNew:true,
+     goal:'المواطنة الرقمية. كل حلقة تبدأ بقرار رقمي صغير — نشر صورة، مشاركة رقم، الرد على تعليق — وتتابع أثره خلال أسبوع. يعالج الخصوصية والتنمر الإلكتروني والتحقق من المصدر والبصمة الرقمية بلا وعظ.'},
+    {n:'صديقي الذكي', age:'٩–١٢', keys:['a5','a6'], fmt:'أنيميشن 3D مع غرافيكس', ep:'٢٤', dur:'١٠–١٢ د', tier:'core', isNew:true,
+     goal:'الذكاء الاصطناعي للأطفال. شخصية ذكاء اصطناعي تتعلم مع الطفل: كيف تعمل الخوارزمية، لماذا تخطئ الآلة، ما الفرق بين المعلومة والرأي، ولماذا لا يُستبدل الإنسان. يبني وعياً تقنياً ونقدياً في آن.'},
+    {n:'خطوة خطوة', age:'١–٢', keys:['a1'], fmt:'موشن غرافيك بطيء عالي التباين', ep:'٦٠', dur:'٢–٣ د', tier:'volume', isNew:true,
+     goal:'التفاعل الأولي. كتل لونية كبيرة وحركة بسيطة وإيقاع متكرر، مع لحظة توقّع تليها مكافأة بصرية. يخدم أكبر فجوة في المحفظة بكلفة إنتاج منخفضة جداً.'},
+    {n:'ورشة الخطأ', age:'٧–١٠', keys:['a4','a5'], fmt:'Live-Action تفاعلي مع أنيميشن', ep:'٢٦', dur:'٩–١١ د', tier:'core', isNew:true,
+     goal:'العلوم التفاعلية وحل المشكلات. تجربة تفشل في كل حلقة ثم يُعاد بناؤها بتعديل واحد. الرسالة الضمنية أن الخطأ خطوة في الطريق لا نهايته. قابل للتوسع إلى منتج تعليمي مدرسي.'},
+    {n:'مساحتي', age:'٩–١٣', keys:['a5','a6'], fmt:'أنيميشن 2D أسلوبي', ep:'٢٢', dur:'٨–١٠ د', tier:'pilot', isNew:true,
+     goal:'حماية الطفل والحدود الشخصية للأعمار الأكبر: الحدود الجسدية والعاطفية والرقمية، الفرق بين السر الممتع والسر المقلق، حق قول لا، ومن هو الشخص الآمن. يُنتج بإشراف مختص حماية في كل مرحلة.'}
+  ];
+
+  var TIER_LABEL = { flagship:'واجهة', core:'عمود فقري', volume:'تغذية', pilot:'تجريب' };
+  var tbody = document.getElementById('progBody');
+  var countNote = document.getElementById('countNote');
+  var AR = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  function toAr(n){ return String(n).split('').map(function(d){ return AR[+d]; }).join(''); }
+
+  function render(filter){
+    var list = PROGRAMS.filter(function(p){
+      if (filter === 'all') return true;
+      if (filter === 'new') return p.isNew;
+      return p.keys.indexOf(filter) !== -1;
+    });
+
+    tbody.innerHTML = '';
+    list.forEach(function(p, i){
+      var row = document.createElement('tr');
+      row.className = 'prow';
+      row.tabIndex = 0;
+      row.innerHTML =
+        '<td>' + (p.isNew ? '<span class="new-mark">جديد</span>' : '') + p.n + '</td>' +
+        '<td class="num">' + p.age + '</td>' +
+        '<td>' + p.fmt + '</td>' +
+        '<td class="num">' + p.ep + '</td>' +
+        '<td class="num">' + p.dur + '</td>' +
+        '<td><span class="tier t-' + p.tier + '">' + TIER_LABEL[p.tier] + '</span></td>';
+
+      var detail = document.createElement('tr');
+      detail.className = 'pdetail';
+      detail.style.display = detailsOpen ? 'table-row' : 'none';
+      detail.innerHTML = '<td colspan="6"><p class="goal"><strong>الهدف النمائي والقيمي:</strong> ' + p.goal + '</p></td>';
+
+      function toggle(){
+        detail.style.display = (detail.style.display === 'none') ? 'table-row' : 'none';
+        syncDetailsButton();
+      }
+      row.addEventListener('click', toggle);
+      row.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+      });
+
+      tbody.appendChild(row);
+      tbody.appendChild(detail);
+    });
+
+    countNote.textContent = list.length === 1
+      ? 'يُعرض برنامج واحد.'
+      : 'يُعرض ' + toAr(list.length) + ' من البرامج. انقر أي صف لاستعراض هدفه النمائي.';
+
+    syncDetailsButton();
+  }
+
+  function applyFilter(key){
+    activeFilter = key;
+    var box = document.getElementById('ageFilters');
+    box.querySelectorAll('.chip').forEach(function(c){
+      c.setAttribute('aria-pressed', c.dataset.age === key ? 'true' : 'false');
+    });
+    render(key);
+  }
+
+  document.getElementById('ageFilters').addEventListener('click', function(e){
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    applyFilter(chip.dataset.age);
+  });
+
+  applyFilter('all');
+
+  /* ---------- حفظ نسخة وطباعة ---------- */
+  document.getElementById('btnDownload').addEventListener('click', function(){
+    var blob = new Blob([ORIGINAL_HTML], {type:'text/html;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'مقترح-منصة-الأطفال-عرض-تنفيذي.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+    toast('تم حفظ نسخة من الملف');
+  });
+
+  /* ---------- تجهيز الوثيقة قبل الطباعة أو حفظ PDF ----------
+     يُلغى الترشيح وتُفتح كل البطاقات وتفاصيل البرامج، ثم تُعاد الحالة
+     السابقة بعد انتهاء الطباعة، حتى لا يسقط أي نص من الملف المطبوع. */
+  var printSnapshot = null;
+
+  function prepareForPrint(){
+    if (printSnapshot) return;
+    var accStates = [];
+    document.querySelectorAll('[data-acc] .acc-head').forEach(function(h){
+      accStates.push(h.getAttribute('aria-expanded') === 'true');
+    });
+    printSnapshot = { filter: activeFilter, accs: accStates, details: detailsOpen };
+
+    if (activeFilter !== 'all') applyFilter('all');
+    setAllDetails(true);
+  }
+
+  function restoreAfterPrint(){
+    if (!printSnapshot) return;
+    var snap = printSnapshot;
+    printSnapshot = null;
+
+    if (snap.filter !== 'all') applyFilter(snap.filter);
+    if (!snap.details){
+      document.querySelectorAll('tr.pdetail').forEach(function(tr){ tr.style.display = 'none'; });
+      document.querySelectorAll('[data-acc] .acc-head').forEach(function(h, i){
+        var open = !!snap.accs[i];
+        h.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (h.nextElementSibling) h.nextElementSibling.classList.toggle('is-open', open);
+      });
+    }
+    syncDetailsButton();
+  }
+
+  window.addEventListener('beforeprint', prepareForPrint);
+  window.addEventListener('afterprint', restoreAfterPrint);
+
+  if (window.matchMedia){
+    var printMql = window.matchMedia('print');
+    var onPrintChange = function(e){
+      if (e.matches) prepareForPrint(); else restoreAfterPrint();
+    };
+    if (printMql.addEventListener) printMql.addEventListener('change', onPrintChange);
+    else if (printMql.addListener) printMql.addListener(onPrintChange);
+  }
+
+  function doPrint(){
+    prepareForPrint();
+    setTimeout(function(){ window.print(); }, 150);
+  }
+
+  document.getElementById('btnPrint').addEventListener('click', doPrint);
+  document.getElementById('btnPrintBar').addEventListener('click', doPrint);
+
+  /* ---------- تنقل بلوحة المفاتيح بمنطق الواجهة العربية ----------
+     السهم الأيسر ← ينتقل إلى القسم التالي (اتجاه القراءة للأمام)
+     السهم الأيمن → يعود إلى القسم السابق */
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+
+    var t = e.target;
+    if (t && t.nodeType === 1){
+      if (t.isContentEditable) return;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+    }
+
+    var i = SECTION_IDS.indexOf(currentId);
+    if (i === -1) return;
+
+    var key = e.key;
+    if (key === 'ArrowLeft' || key === 'Left'){
+      if (i < SECTION_IDS.length - 1){ e.preventDefault(); show(SECTION_IDS[i + 1]); }
+    } else if (key === 'ArrowRight' || key === 'Right'){
+      if (i > 0){ e.preventDefault(); show(SECTION_IDS[i - 1]); }
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
